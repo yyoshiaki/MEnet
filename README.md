@@ -1,5 +1,5 @@
-# MEnet
-MEnet is a neural-net based deconvolution method for methylation data.
+# MethylationNet
+MethylationNet is a neural-net based deconvolution method for methylation data.
 
 
 ## Contact
