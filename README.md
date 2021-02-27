@@ -1,4 +1,4 @@
-# MEnet <img src="https://github.com/yyoshiaki/MEnet/raw/master/img/MEnet.png" width="20%" align="right" />
+# MEnet <img src="./img/MEnet.png" width="20%" align="right" />
 
 MEnet is a neural-net based deconvolution method for methylation data.
 
