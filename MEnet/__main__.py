@@ -2,6 +2,7 @@
 # coding: utf-8
 
 import argparse
+from .version import __version__
 
 def command_preprocess(args):
     print(args)
@@ -10,7 +11,13 @@ def command_train(args):
     print(args)
 
 def command_predict(args):
-    print(args)
+    from .predict import predict
+
+    predict(args)
+    # print(args)
+    
+
+    
 
 def command_help(args):
     print(parser.parse_args([args.command, '--help']))
@@ -47,4 +54,5 @@ def main():
         parser.print_help()
 
 if __name__ == "__main__":
-	main()
+    print('MEnet version : ', __version__)
+    main()
