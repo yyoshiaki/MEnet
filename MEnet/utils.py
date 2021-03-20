@@ -25,7 +25,8 @@ class Mixup_dataset(torch.utils.data.Dataset):
         self.n_choise = n_choise
         self.noise = 1/noise
         self.dropout = np.random.uniform(dropout)
-        self.p = np.matmul(np.minimum(1 / label.sum(axis=0), np.ones(label.shape[1])),
+        with np.errstate(invalid='ignore'):
+            self.p = np.matmul(np.minimum(1 / label.sum(axis=0), np.ones(label.shape[1])),
                            label.T)
         self.p /= self.p.sum()
 

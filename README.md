@@ -4,8 +4,10 @@ MEnet is a neural-net based deconvolution method for methylation data.
 
 ## For development
 
+install 
+
 ```
-python -m MEnet
+python setup.py develop
 ```
 
 ## Contact

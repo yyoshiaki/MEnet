@@ -17,8 +17,6 @@ def command_predict(args):
     # print(args)
     
 
-    
-
 def command_help(args):
     print(parser.parse_args([args.command, '--help']))
 
@@ -44,7 +42,6 @@ def main():
     parser_help = subparsers.add_parser('help', help='see `help -h`')
     parser_help.add_argument('command', help='command name which help is shown')
     parser_help.set_defaults(handler=command_help)
-
    
     args = parser.parse_args()
     if hasattr(args, 'handler'):
