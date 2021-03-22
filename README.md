@@ -10,6 +10,18 @@ install
 python setup.py develop
 ```
 
+run 
+
+```
+python cli.py
+```
+
+ex.
+
+```
+python cli.py train --help
+```
+
 ## Contact
 
 Yoshiaki Yasumizu ([yyasumizu@ifrec.osaka-u.ac.jp](yyasumizu@ifrec.osaka-u.ac.jp))

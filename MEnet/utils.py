@@ -10,12 +10,10 @@ from torch.nn.modules.loss import _WeightedLoss
 import numpy as np
 
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-
 class Mixup_dataset(torch.utils.data.Dataset):
 
-    def __init__(self, data, label, transform='mix', imputation=None, noise=0.01, n_choise=10, dropout=0.4):
+    def __init__(self, data, label, transform='mix', imputation=None, 
+    noise=0.01, n_choise=10, dropout=0.4, device=torch.device("cpu")):
         self.transform = transform
         self.imputation = imputation
         self.data_num = data.shape[0]
@@ -25,6 +23,7 @@ class Mixup_dataset(torch.utils.data.Dataset):
         self.n_choise = n_choise
         self.noise = 1/noise
         self.dropout = np.random.uniform(dropout)
+        self.device = device
         with np.errstate(invalid='ignore'):
             self.p = np.matmul(np.minimum(1 / label.sum(axis=0), np.ones(label.shape[1])),
                            label.T)
@@ -60,8 +59,8 @@ class Mixup_dataset(torch.utils.data.Dataset):
             out_data = self.imputation.transform(out_data.reshape((1,out_data.shape[0]))
                                                 ).reshape(out_data.shape[0])
             
-        out_data = torch.from_numpy(out_data).to(device).float()
-        out_label = torch.from_numpy(out_label).to(device)
+        out_data = torch.from_numpy(out_data).to(self.device).float()
+        out_label = torch.from_numpy(out_label).to(self.device)
         return out_data, out_label
     
 
