@@ -36,7 +36,7 @@ def main():
 
     parser_predict = subparsers.add_parser('predict', help='see `predict -h`')
     parser_predict.add_argument('-i', '--input', metavar='input', help='input')
-    parser_predict.add_argument('-r', '--reference', metavar='reference', help='reference')
+    parser_predict.add_argument('-m', '--model', metavar='model', help='Traind model')
     parser_predict.add_argument('--input_type', help='input type. (default : auto)', default='auto',
                                 choices=['auto', 'bismark', 'table', 'array'])
     
