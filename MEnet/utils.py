@@ -150,3 +150,11 @@ class EarlyStopping:
             self.best_score = score
             self.counter = 0
 
+
+def detect_delim(f_input):
+    with open(f_input, 'r') as f:
+        header = f.readline()
+    if header.count(',') > header.count('\t'):
+        return 'csv'
+    else:
+        return 'tsv'

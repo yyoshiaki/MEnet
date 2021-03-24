@@ -1,5 +1,5 @@
-#!/usr/bin/env python
-# coding: utf-8
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 import argparse
 import MEnet
@@ -39,6 +39,9 @@ def main():
     parser_predict.add_argument('-m', '--model', metavar='model', help='Traind model')
     parser_predict.add_argument('--input_type', help='input type. (default : auto)', default='auto',
                                 choices=['auto', 'bismark', 'table', 'array'])
+    parser_predict.add_argument('--input_filetype', help='input file type. (default : auto)', default='auto',
+                                choices=['auto', 'csv', 'tsv'])
+                            
     
     
     parser_predict.set_defaults(handler=command_predict)
