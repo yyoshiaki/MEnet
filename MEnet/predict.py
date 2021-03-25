@@ -85,10 +85,10 @@ def predict(args):
     df_pred.to_csv('{}/cell_proportion.csv'.format(args.output_dir))
 
     for c in df_pred.columns:
-        c = c.replace('/', '_')
+        c_rep = c.replace('/', '_')
         plt.figure(figsize=(6,2))
-        df_pred.iloc[0].plot.bar()
-        plt.title(c)
+        df_pred[c].plot.bar()
+        plt.title(c_rep)
         plt.ylim(0,1)
-        plt.savefig('{d}/barplot_cell_proportion_{c}.pdf'.format(d=args.output_dir, c=c), 
+        plt.savefig('{d}/barplot_cell_proportion_{c}.pdf'.format(d=args.output_dir, c=c_rep), 
                     bbox_inches='tight')
