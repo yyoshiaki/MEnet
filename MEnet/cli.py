@@ -35,13 +35,13 @@ def main():
     parser_train.set_defaults(handler=command_train)
 
     parser_predict = subparsers.add_parser('predict', help='see `predict -h`')
-    parser_predict.add_argument('-i', '--input', metavar='input', help='input')
-    parser_predict.add_argument('-m', '--model', metavar='model', help='Traind model')
+    parser_predict.add_argument('-i', '--input', metavar='input', help='input', required=True)
+    parser_predict.add_argument('-m', '--model', metavar='model', help='Traind model (pickle file).', required=True)
     parser_predict.add_argument('--input_type', help='input type. (default : auto)', default='auto',
                                 choices=['auto', 'bismark', 'table', 'array'])
     parser_predict.add_argument('--input_filetype', help='input file type. (default : auto)', default='auto',
                                 choices=['auto', 'csv', 'tsv'])
-                            
+    parser_predict.add_argument('-o', '--output_dir', metavar='dir_out', help='output directory', default='out') 
     
     
     parser_predict.set_defaults(handler=command_predict)

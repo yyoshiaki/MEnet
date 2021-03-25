@@ -2,10 +2,20 @@
 # -*- coding: utf-8 -*-
 
 import pickle
+import os
 
+import numpy as np
 import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
+mpl.rcParams['figure.facecolor'] = (1,1,1,1)
+mpl.rcParams['pdf.fonttype'] = 42
+mpl.rcParams['ps.fonttype'] = 42
+
 from sklearn.impute import SimpleImputer
 import torch
+import torch.nn.functional as F
 from MEnet import models, utils
 
 '''
@@ -27,11 +37,12 @@ def read_input(f_input, input_type, input_filetype, idx_regions):
     # if input_type == 'auto':
     #     input_type = detect_filetype(df_input)
 
-    print(df_input.head())
+    # print(df_input.head())
 
-    df_input = df_input.reindex[idx_regions]
+    df_input = df_input.reindex(idx_regions)
+    df_input = pd.DataFrame(df_input) # in case df_input is series
 
-    return np.numpy(df_inpu)
+    return np.array(df_input).T, list(df_input.columns)
 
 def predict(args):
     # print(args)
@@ -40,6 +51,7 @@ def predict(args):
     # print(args.model)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # device = torch.device("cpu")
     print("device : ", device)
 
     with open(args.model, mode='rb') as f:
@@ -57,12 +69,26 @@ def predict(args):
 
     # print(idx_regions[:3])
     
-    X_test = read_input(args.input, args.input_type, args.input_filetype, idx_regions)
+    X, cols = read_input(args.input, args.input_type, args.input_filetype, idx_regions)
+    # print(X.shape)
 
+    y_pred = model(torch.FloatTensor(imp.transform(X)).to(device))
+    # print(F.softmax(y_pred).cpu().detach().numpy())
 
-    y_pred = model(torch.FloatTensor(imp.transform(x_train)).to(device))
-
-    df_pred = pd.DataFrame(F.softmax(y_pred).cpu().detach().numpy())
+    df_pred = pd.DataFrame(F.softmax(y_pred).cpu().detach().numpy().T)
     df_pred.index = cell_labels
+    df_pred.columns = cols
+
+    os.makedirs(args.output_dir, exist_ok=True)
 
     print(df_pred)
+    df_pred.to_csv('{}/cell_proportion.csv'.format(args.output_dir))
+
+    for c in df_pred.columns:
+        c = c.replace('/', '_')
+        plt.figure(figsize=(6,2))
+        df_pred.iloc[0].plot.bar()
+        plt.title(c)
+        plt.ylim(0,1)
+        plt.savefig('{d}/barplot_cell_proportion_{c}.pdf'.format(d=args.output_dir, c=c), 
+                    bbox_inches='tight')
