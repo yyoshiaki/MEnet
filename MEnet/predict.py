@@ -65,6 +65,8 @@ def predict(args):
     # device = torch.device("cpu")
     print("device : ", device)
 
+    os.makedirs(args.output_dir, exist_ok=True)
+
     with open(args.model, mode='rb') as f:
         model_params = pickle.load(f)
 
@@ -89,8 +91,6 @@ def predict(args):
     df_pred = pd.DataFrame(F.softmax(y_pred).cpu().detach().numpy().T)
     df_pred.index = cell_labels
     df_pred.columns = cols
-
-    os.makedirs(args.output_dir, exist_ok=True)
 
     print(df_pred)
     df_pred.to_csv('{}/cell_proportion.csv'.format(args.output_dir))
