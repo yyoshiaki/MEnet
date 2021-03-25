@@ -221,3 +221,27 @@ def tile_bismark(f_bismark, tile_bp, p_bedtools):
     shutil.rmtree('tmp_menet')
     
     return df
+
+
+def tile_array(f_input, input_filetype, tile_bp):
+
+    ref = 'hg38'
+
+    try:
+        df_probeid_name = pd.read_csv(
+            '{d}/../data/probeID_name_win{t}bp.{r}.csv.gz'.format(
+                r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=tile_bp))
+    except ValueError:
+        print('The index file; ProbeID - tiling windows is not prepared for the tile(bp).')
+
+    if input_filetype == 'tsv':
+        df_array = pd.read_csv(f_input, comment="!", sep='\t', index_col = 0)
+    else:
+        df_array = pd.read_csv(f_input, index_col=0)
+
+    df_array['probeID'] = df_array.index
+    df_array = pd.merge(df_array, df_probeid_name, how='left', on='probeID')
+    df_array = df_array.drop(['probeID'], axis=1)
+    df_array = df_array.groupby(by='name').mean()
+
+    return df_array

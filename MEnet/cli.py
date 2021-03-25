@@ -46,7 +46,7 @@ def main():
     
     parser_predict.set_defaults(handler=command_predict)
 
-    parser_help = subparsers.add_parser('help', help='see `help -h`')
+    parser_help = subparsers.add_parser('help', help='see `help`')
     parser_help.add_argument('command', help='command name which help is shown')
     parser_help.set_defaults(handler=command_help)
    

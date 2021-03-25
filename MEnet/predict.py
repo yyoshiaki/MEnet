@@ -30,7 +30,7 @@ def read_input(f_input, input_type, idx_regions, dir_out, p_bedtools):
     if input_filetype == 'csv':
         df_input = pd.read_csv(f_input, index_col=0)
     else:
-        df_input = pd.read_csv(f_input, sep='\t', index_col=0)
+        df_input = pd.read_csv(f_input, sep='\t', index_col=0, comment="!")
 
     seg = idx_regions[0].split(':')[1]
     tile_bp = int(seg.split('-')[1]) - int(seg.split('-')[0])
@@ -45,6 +45,10 @@ def read_input(f_input, input_type, idx_regions, dir_out, p_bedtools):
         print('Tiling bismark cov...')
         df_input = utils.tile_bismark(f_input, tile_bp, p_bedtools)
         df_input.to_csv('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=df_input.columns[0], t=tile_bp))
+
+    if input_type == 'array':
+        print('Proccessing microarray data...')
+        df_input = utils.tile_array(f_input, input_filetype, tile_bp)
 
     # print(df_input.head())
 
