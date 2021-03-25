@@ -8,7 +8,9 @@ def command_preprocess(args):
     print(args)
 
 def command_train(args):
-    print(args)
+    from .train import train
+
+    train(args)
 
 def command_predict(args):
     from .predict import predict
@@ -32,7 +34,7 @@ def main():
 
     # train
     parser_train = subparsers.add_parser('train', help='see `train -h`')
-    parser_train.add_argument('-A', '--all', action='store_true', help='all files')
+    parser_train.add_argument('input_yaml', action='store', help='input yaml file.')
     parser_train.set_defaults(handler=command_train)
 
     # predict

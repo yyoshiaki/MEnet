@@ -8,15 +8,16 @@ import numpy as np
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from sklearn.impute import SimpleImputer
+import torch
+import torch.nn.functional as F
+from tqdm import tqdm
+
+from MEnet import models, utils
 
 mpl.rcParams['figure.facecolor'] = (1,1,1,1)
 mpl.rcParams['pdf.fonttype'] = 42
 mpl.rcParams['ps.fonttype'] = 42
-
-from sklearn.impute import SimpleImputer
-import torch
-import torch.nn.functional as F
-from MEnet import models, utils
 
 '''
 reference : pickle of list(model architechture, weight, index of regions, cell labels, imputer)
@@ -99,7 +100,8 @@ def predict(args):
     print(df_pred)
     df_pred.to_csv('{}/cell_proportion.csv'.format(args.output_dir))
 
-    for c in df_pred.columns:
+    print('plotting...')
+    for c in tqdm(df_pred.columns):
         c_rep = c.replace('/', '_')
         plt.figure(figsize=(6,2))
         df_pred[c].plot.bar()
