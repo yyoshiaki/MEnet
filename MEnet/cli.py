@@ -30,19 +30,19 @@ def main():
     parser_preprocess.add_argument('-r', '--reference', metavar='reference', help='reference')
     parser_preprocess.set_defaults(handler=command_train)
 
+    # train
     parser_train = subparsers.add_parser('train', help='see `train -h`')
     parser_train.add_argument('-A', '--all', action='store_true', help='all files')
     parser_train.set_defaults(handler=command_train)
 
+    # predict
     parser_predict = subparsers.add_parser('predict', help='see `predict -h`')
     parser_predict.add_argument('-i', '--input', metavar='input', help='input', required=True)
     parser_predict.add_argument('-m', '--model', metavar='model', help='Traind model (pickle file).', required=True)
     parser_predict.add_argument('--input_type', help='input type. (default : auto)', default='auto',
                                 choices=['auto', 'bismark', 'table', 'array'])
-    parser_predict.add_argument('--input_filetype', help='input file type. (default : auto)', default='auto',
-                                choices=['auto', 'csv', 'tsv'])
     parser_predict.add_argument('-o', '--output_dir', metavar='output_dir', help='output directory', default='out') 
-    
+    parser_predict.add_argument('--bedtools', type=str, default='bedtools', help='Full path to bedtools.')
     
     parser_predict.set_defaults(handler=command_predict)
 

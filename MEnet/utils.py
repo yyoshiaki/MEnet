@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import shutil
+import os
+import subprocess
+
+import pandas as pd
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -152,9 +157,67 @@ class EarlyStopping:
 
 
 def detect_delim(f_input):
-    with open(f_input, 'r') as f:
-        header = f.readline()
-    if header.count(',') > header.count('\t'):
+    df_csv = pd.read_csv(f_input, nrows=3)
+    df_tsv = pd.read_csv(f_input, sep='\t', nrows=3)
+    if df_csv.shape[1] > df_tsv.shape[1]:
         return 'csv'
     else:
         return 'tsv'
+
+
+def check_tile(t, ref, p_bedtools):
+    if not os.path.exists('{d}/../data/{r}.win{t}.bed.gz'.format(r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=t)):
+        cmd = '{b} makewindows -g {d}/../data/{r}.sort.genome -w {t} > {d}/../data/{r}.win{t}.bed'.format(
+            b=p_bedtools, d=os.path.dirname(os.path.abspath(__file__)), t=t, r=ref)
+        print(cmd)
+        subprocess.run(cmd, shell=True)
+
+        cmd = 'gzip {d}/../data/{r}.win{t}.bed'.format(r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=t)
+        print(cmd)
+        subprocess.run(cmd, shell=True)
+
+
+def parse_bismark(f, t):
+    df = pd.read_csv(f, sep='\t', header=None)
+    df.columns = ['chromosome', 'start', 'end', 'methylated_frequency', 'meth', 'deme']
+    if t == 0:
+        df['CpGs'] = df['chromosome'] + ':' + (df['start']).astype(str)
+    else:
+        df['CpGs'] = df['chromosome'] + ':' + (df['start']).astype(str) + '-' + (df['end']).astype(str)
+    
+    if df['methylated_frequency'].max() > 1:
+        df['methylated_frequency'] /= 100   
+    # df = df[df[['meth', 'deme']].sum(axis=1) > th_cov]
+    # df['methylated_frequency'] = (df['meth'] + 1) / (df['meth'] + df['deme'] + 2)
+    df = df[['CpGs', 'methylated_frequency']]
+    return df
+
+
+def tile_bismark(f_bismark, tile_bp, p_bedtools):
+
+    ref = 'hg38'
+
+    n = f_bismark.split('/')[-1].split('.bis')[0]
+    print('sample name : ', n)
+    os.makedirs('tmp_menet', exist_ok=True)
+    check_tile(tile_bp, ref, p_bedtools)
+
+    cmd = '{b} sort -i {f} > {f_sort}'.format(b=p_bedtools, f=f_bismark, f_sort='tmp_menet/tmp.sort.txt')
+    print(cmd)
+    subprocess.run(cmd, shell=True)
+
+    cmd = '{b} map -a {d}/../data/{r}.win{x}.bed.gz -b {bis} -c 4,5,6 -o mean,sum,sum | grep -v "\.\s*\." > {o}'.format(
+        b = p_bedtools, d=os.path.dirname(os.path.abspath(__file__)),
+        x = tile_bp, bis='tmp_menet/tmp.sort.txt', o='tmp_menet/tmp.tile.txt', r=ref)
+    print(cmd)
+    subprocess.run(cmd, shell=True)
+    f = 'tmp_menet/tmp.tile.txt'
+    df = parse_bismark(f, tile_bp)
+    df.columns = ['CpGs', n]
+    df.index = df['CpGs']
+    df.index.name = 'CpGs'
+    df = df[[n]]
+
+    shutil.rmtree('tmp_menet')
+    
+    return df

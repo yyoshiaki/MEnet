@@ -24,25 +24,36 @@ reference : pickle of list(model architechture, weight, index of regions, cell l
 '''
 
 
-def read_input(f_input, input_type, input_filetype, idx_regions):
-    if input_filetype == 'auto':
-        input_filetype = utils.detect_delim(f_input)
+def read_input(f_input, input_type, idx_regions, dir_out, p_bedtools):
+    input_filetype = utils.detect_delim(f_input)
 
     if input_filetype == 'csv':
         df_input = pd.read_csv(f_input, index_col=0)
     else:
         df_input = pd.read_csv(f_input, sep='\t', index_col=0)
 
-    # #### detect_filetype
-    # if input_type == 'auto':
-    #     input_type = detect_filetype(df_input)
+    seg = idx_regions[0].split(':')[1]
+    tile_bp = int(seg.split('-')[1]) - int(seg.split('-')[0])
+
+    # #### detect_filetype#############################
+    # if input_filetype == 'auto':
+    #     input_filetype = detect_filetype(df_input)
+    ################################################
+
+    # print(input_type)
+    if input_type == 'bismark':
+        print('Tiling bismark cov...')
+        df_input = utils.tile_bismark(f_input, tile_bp, p_bedtools)
+        df_input.to_csv('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=df_input.columns[0], t=tile_bp))
 
     # print(df_input.head())
 
     df_input = df_input.reindex(idx_regions)
     df_input = pd.DataFrame(df_input) # in case df_input is series
 
+
     return np.array(df_input).T, list(df_input.columns)
+
 
 def predict(args):
     # print(args)
@@ -69,7 +80,7 @@ def predict(args):
 
     # print(idx_regions[:3])
     
-    X, cols = read_input(args.input, args.input_type, args.input_filetype, idx_regions)
+    X, cols = read_input(args.input, args.input_type, idx_regions, args.output_dir, args.bedtools)
     # print(X.shape)
 
     y_pred = model(torch.FloatTensor(imp.transform(X)).to(device))

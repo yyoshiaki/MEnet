@@ -130,4 +130,6 @@ dmypy.json
 
 .vscode
 out
-tmp
+tmp_menet
+.ipynb_checkpoints
+data/*.win*.bed.gz
