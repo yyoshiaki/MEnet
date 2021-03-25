@@ -9,6 +9,28 @@ MEnet is a neural-net based deconvolution method for methylation data. MEnet can
 3. `python setup.py install`
 4. If you use the `--bismark` option, you need to install `bedtools` locally.
 
+## Usage
+
+### prediction
+
+```
+usage: MEnet predict [-h] -i input -m model
+                     [--input_type {auto,bismark,table,array}] [-o output_dir]
+                     [--bedtools BEDTOOLS]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i input, --input input
+                        input
+  -m model, --model model
+                        Traind model (pickle file).
+  --input_type {auto,bismark,table,array}
+                        input type. (default : auto)
+  -o output_dir, --output_dir output_dir
+                        output directory
+  --bedtools BEDTOOLS   Full path to bedtools.
+```
+
 ## For development
 
 ```
