@@ -41,7 +41,7 @@ def main():
                                 choices=['auto', 'bismark', 'table', 'array'])
     parser_predict.add_argument('--input_filetype', help='input file type. (default : auto)', default='auto',
                                 choices=['auto', 'csv', 'tsv'])
-    parser_predict.add_argument('-o', '--output_dir', metavar='dir_out', help='output directory', default='out') 
+    parser_predict.add_argument('-o', '--output_dir', metavar='output_dir', help='output directory', default='out') 
     
     
     parser_predict.set_defaults(handler=command_predict)
