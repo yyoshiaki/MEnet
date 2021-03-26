@@ -230,7 +230,7 @@ def tile_array(f_input, input_filetype, tile_bp):
     try:
         df_probeid_name = pd.read_csv(
             '{d}/../data/probeID_name_win{t}bp.{r}.csv.gz'.format(
-                r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=tile_bp))
+                r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=tile_bp), index_col=0)
     except ValueError:
         print('The index file; ProbeID - tiling windows is not prepared for the tile(bp).')
 
@@ -239,9 +239,11 @@ def tile_array(f_input, input_filetype, tile_bp):
     else:
         df_array = pd.read_csv(f_input, index_col=0)
 
+    col_samples = df_array.columns
+
     df_array['probeID'] = df_array.index
     df_array = pd.merge(df_array, df_probeid_name, how='left', on='probeID')
-    df_array = df_array.drop(['probeID'], axis=1)
     df_array = df_array.groupby(by='name').mean()
-
+    df_array = df_array[col_samples]
+    
     return df_array

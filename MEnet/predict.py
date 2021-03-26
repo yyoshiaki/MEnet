@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+import seaborn as sns
 from sklearn.impute import SimpleImputer
 import torch
 import torch.nn.functional as F
@@ -115,6 +116,13 @@ def predict(args):
         plt.savefig('{d}/barplot_cell_proportion_MinorGroup_{c}.pdf'.format(d=args.output_dir, c=c_rep), 
                     bbox_inches='tight')
 
+    plt.figure(figsize=(4+0.4*df_pred.shape[1],8))
+    sns.heatmap(df_pred, vmin=0, vmax=1, cmap='viridis', square=True)
+    plt.title("Minor Category")
+    plt.savefig('{d}/heatmap_cell_proportion_MinorGroup.pdf'.format(d=args.output_dir), 
+                bbox_inches='tight')
+
+
     df_pred['MinorGroup'] = df_pred.index
     df_pred = pd.merge(df_pred, df_cat, how='left').groupby(by='Tissue').\
                 sum().loc[df_cat['Tissue'].drop_duplicates()]
@@ -131,6 +139,12 @@ def predict(args):
         plt.ylim(0,1)
         plt.savefig('{d}/barplot_cell_proportion_MajorGroup_{c}.pdf'.format(d=args.output_dir, c=c_rep), 
                     bbox_inches='tight')
+
+    plt.figure(figsize=(4+0.4*df_pred.shape[1],8))
+    sns.heatmap(df_pred, vmin=0, vmax=1, cmap='viridis', square=True)
+    plt.title("Major Category")
+    plt.savefig('{d}/heatmap_cell_proportion_MajorGroup.pdf'.format(d=args.output_dir), 
+                bbox_inches='tight')
 
     print('completed!')
 
