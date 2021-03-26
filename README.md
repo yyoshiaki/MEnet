@@ -16,7 +16,7 @@ MEnet is a neural-net based deconvolution method for methylation data. MEnet can
 ```
 usage: MEnet predict [-h] -i input -m model
                      [--input_type {auto,bismark,table,array}] [-o output_dir]
-                     [--bedtools BEDTOOLS]
+                     [--bedtools BEDTOOLS] [--device DEVICE]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -29,6 +29,7 @@ optional arguments:
   -o output_dir, --output_dir output_dir
                         output directory
   --bedtools BEDTOOLS   Full path to bedtools.
+  --device DEVICE       device for pytorch. (ex. cpu, cuda)
 ```
 
 ## For development

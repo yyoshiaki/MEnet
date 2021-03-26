@@ -66,7 +66,10 @@ def predict(args):
     # print(args.input)
     # print(args.model)
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if args.device:
+        device = torch.device(args.device)
+    else:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # device = torch.device("cpu")
     print("device : ", device)
 
@@ -109,3 +112,5 @@ def predict(args):
         plt.ylim(0,1)
         plt.savefig('{d}/barplot_cell_proportion_{c}.pdf'.format(d=args.output_dir, c=c_rep), 
                     bbox_inches='tight')
+
+    print('completed!')

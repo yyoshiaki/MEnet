@@ -45,6 +45,7 @@ def main():
                                 choices=['auto', 'bismark', 'table', 'array'])
     parser_predict.add_argument('-o', '--output_dir', metavar='output_dir', help='output directory', default='out') 
     parser_predict.add_argument('--bedtools', type=str, default='bedtools', help='Full path to bedtools.')
+    parser_predict.add_argument('--device', type=str, default=None, help='device for pytorch. (ex. cpu, cuda)')
     
     parser_predict.set_defaults(handler=command_predict)
 
