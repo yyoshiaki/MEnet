@@ -96,7 +96,7 @@ def train(args):
 
     def objective(trial):
 
-        n_layers = trial.suggest_int("n_layers", 1, 10)
+        n_layers = trial.suggest_int("n_layers", 2, 10)
         hidden_dim = trial.suggest_int("hidden_dim", 100, 3000, 100)
         dropout_rate = trial.suggest_float("dropout_rate", 0, 1)
         activation = trial.suggest_categorical("activation", ["relu", 'tanh', 'leakyrelu'])

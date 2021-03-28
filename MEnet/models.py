@@ -13,7 +13,7 @@ class MEnet(torch.nn.Module):
         self.input_dim = input_dim
         self.hidden_dim = hidden_dim
         self.dropout_rate = dropout_rate
-        self.n_layers = n_layers
+        self.n_mid_layers = n_layers - 2
         if activation.lower() == 'relu':
             ac = nn.ReLU
         elif activation.lower() == 'tanh':
@@ -27,20 +27,22 @@ class MEnet(torch.nn.Module):
             ac(),
             nn.Dropout(dropout_rate)
         )
- 
-        middle = []
-        for _ in range(n_layers):
-            middle.append(nn.Linear(hidden_dim, hidden_dim))
-            middle.append(nn.Dropout(dropout_rate))
-            middle.append(nn.BatchNorm1d(hidden_dim))
-            middle.append(ac())
 
-        self.middle_layers = nn.Sequential(*middle) 
+        if self.n_mid_layers > 0:
+            middle = []
+            for _ in range(self.n_mid_layers):
+                middle.append(nn.Linear(hidden_dim, hidden_dim))
+                middle.append(nn.Dropout(dropout_rate))
+                middle.append(nn.BatchNorm1d(hidden_dim))
+                middle.append(ac())
+
+            self.middle_layers = nn.Sequential(*middle) 
         self.output_layer = nn.Linear(hidden_dim, output_size)
  
  
     def forward(self, x):
         x = self.input_layer(x)
-        x = self.middle_layers(x)
+        if self.n_mid_layers > 0:
+            x = self.middle_layers(x)
         x = self.output_layer(x)
         return x 
