@@ -3,6 +3,8 @@
 
 import pickle
 import os
+import json
+import datetime
 
 import numpy as np
 import pandas as pd
@@ -14,7 +16,7 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 
-from MEnet import models, utils
+from MEnet import models, utils, _version
 
 mpl.rcParams['figure.facecolor'] = (1,1,1,1)
 mpl.rcParams['pdf.fonttype'] = 42
@@ -57,15 +59,24 @@ def read_input(f_input, input_type, idx_regions, dir_out, p_bedtools):
     df_input = df_input.reindex(idx_regions)
     df_input = pd.DataFrame(df_input) # in case df_input is series
 
-
     return np.array(df_input).T, list(df_input.columns)
 
 
 def predict(args):
     # print(args)
+    t = datetime.datetime.now()
 
-    # print(args.input)
-    # print(args.model)
+    os.makedirs(args.output_dir, exist_ok=True)
+    
+    # save args
+    with open("{d}/params.{t}.json".format(d=args.output_dir, t=t.strftime('%Y%m%d_%H%M%S')), 
+                mode="w") as f:
+        json.dump(args.__dict__, f, indent=4, default=lambda o: '<not serializable>')
+
+    with open("{d}/MEnet.{t}.log".format(d=args.output_dir, t=t.strftime('%Y%m%d_%H%M%S')), 
+                mode="w") as f:
+        f.writelines('MEnet version : {} \n'.format(_version.__version__))
+        f.writelines(t.isoformat(timespec='minutes'))
 
     if args.device:
         device = torch.device(args.device)
@@ -73,8 +84,6 @@ def predict(args):
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # device = torch.device("cpu")
     print("device : ", device)
-
-    os.makedirs(args.output_dir, exist_ok=True)
 
     with open(args.model, mode='rb') as f:
         model_params = pickle.load(f)

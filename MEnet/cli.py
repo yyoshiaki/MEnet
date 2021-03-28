@@ -24,6 +24,8 @@ def command_help(args):
 
 
 def main():
+    print('MEnet version : ', MEnet._version.__version__)
+
     parser = argparse.ArgumentParser(description='MEnet')
     subparsers = parser.add_subparsers()
 
@@ -61,5 +63,4 @@ def main():
         parser.print_help()
 
 if __name__ == "__main__":
-    print('MEnet version : ', MEnet._version.__version__)
     main()
