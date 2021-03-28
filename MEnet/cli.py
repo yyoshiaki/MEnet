@@ -24,6 +24,7 @@ def command_help(args):
 
 
 def main():
+    print_logo()
     print('MEnet version : ', MEnet._version.__version__)
 
     parser = argparse.ArgumentParser(description='MEnet')
@@ -61,6 +62,20 @@ def main():
 
     else:
         parser.print_help()
+
+
+def print_logo():
+    print('\x1b[6;30;42m' + '''
+
+                 ____                    __
+         /'\_/`\/\  _`\                 /\ \__
+        /\      \ \ \L\_\    ___      __\ \ ,_\\
+        \ \ \__\ \ \  _\L  /' _ `\  /'__`\ \ \/
+         \ \ \_/\ \ \ \L\ \/\ \/\ \/\  __/\ \ \_
+          \ \_\\ \_\ \____/\ \_\ \_\ \____\\ \__\\
+           \/_/ \/_/\/___/  \/_/\/_/\/____/ \/__/
+
+    ''' + '\x1b[0m')
 
 if __name__ == "__main__":
     main()
