@@ -38,6 +38,7 @@ def main():
     # train
     parser_train = subparsers.add_parser('train', help='see `train -h`')
     parser_train.add_argument('input_yaml', action='store', help='input yaml file.')
+    parser_predict.add_argument('--device', type=str, default=None, help='device for pytorch. (ex. cpu, cuda)')
     parser_train.set_defaults(handler=command_train)
 
     # predict
@@ -66,16 +67,15 @@ def main():
 
 def print_logo():
     print('\x1b[6;30;42m' + '''
-
-                 ____                    __
-         /'\_/`\/\  _`\                 /\ \__
-        /\      \ \ \L\_\    ___      __\ \ ,_\\
-        \ \ \__\ \ \  _\L  /' _ `\  /'__`\ \ \/
-         \ \ \_/\ \ \ \L\ \/\ \/\ \/\  __/\ \ \_
-          \ \_\\ \_\ \____/\ \_\ \_\ \____\\ \__\\
-           \/_/ \/_/\/___/  \/_/\/_/\/____/ \/__/
-
-    ''' + '\x1b[0m')
+                                                  
+             ____                    __           
+     /'\_/`\/\  _`\                 /\ \__        
+    /\      \ \ \L\_\    ___      __\ \ ,_\\      
+    \ \ \__\ \ \  _\L  /' _ `\  /'__`\ \ \/       
+     \ \ \_/\ \ \ \L\ \/\ \/\ \/\  __/\ \ \_      
+      \ \_\\ \_\ \____/\ \_\ \_\ \____\\ \__\\    
+       \/_/ \/_/\/___/  \/_/\/_/\/____/ \/__/     
+                                                  ''' + '\x1b[0m')
 
 if __name__ == "__main__":
     main()

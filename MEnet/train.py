@@ -25,7 +25,7 @@ from torch.nn.modules.loss import _WeightedLoss
 import optuna
 import joblib
 
-import MEnet
+from MEnet import models, utils, _version
 
 '''
 python MEnet_tune_CV.py ../params/210228_optuna_CV.yaml
@@ -35,7 +35,9 @@ input : yaml
 
 
 def train(args):
-    dict_input = yaml.load(f)
+    with open(args.input_yaml, 'r') as f:
+        dict_input = yaml.load(f)
+    # print(dict_input)
 
     f_selected = dict_input['reference']
     f_integrated = dict_input['integrated']
@@ -54,15 +56,16 @@ def train(args):
 
     os.makedirs(dir_output, exist_ok=True)
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+    if args.device:
+        device = torch.device(args.device)
+    else:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     df_ref = pd.read_csv(f_ref)
     # df_ref.head()
 
     df_ref_unassigned = df_ref[df_ref.MinorGroup.isna()]
     df_ref_assigned = df_ref[~df_ref.MinorGroup.isna()]
-
 
     try:
         df = pd.read_pickle(f_pickle)
@@ -88,7 +91,6 @@ def train(args):
 
     labels = pd.get_dummies(df_ref_assigned.MinorGroup)
             
-
 
     # https://scikit-learn.org/stable/modules/cross_validation.html
     ss = ShuffleSplit(n_splits=n_splits, test_size=1/n_splits, random_state=seed)
@@ -121,25 +123,21 @@ def train(args):
 
             imp.fit(x_train)
 
-    #         x_train = torch.FloatTensor(x_train).to(device)
-    #         y_train = torch.FloatTensor(y_train).to(device)
-            # y_train = torch.tensor(y_train, dtype=torch.long).to(device)
             x_test = torch.FloatTensor(imp.transform(x_test)).to(device)
             y_test = torch.FloatTensor(y_test).to(device)
-            # y_test = torch.tensor(y_test, dtype=torch.long).to(device)
 
-            data_set = MEnet.Mixup_dataset(x_train, y_train, transform='mix', imputation=imp,
+            data_set = utils.Mixup_dataset(x_train, y_train, transform='mix', imputation=imp,
                                         noise=0.01, n_choise=10, dropout=0.4, device=device)
             dataloader = torch.utils.data.DataLoader(data_set, batch_size=100, shuffle=True)
 
-                # Generate the model.
-            model = MEnet.MEnet(x_test.shape[1], hidden_dim, dropout_rate, 
+            # Generate the model.
+            model = models.MEnet(x_test.shape[1], hidden_dim, dropout_rate, 
                         n_layers, activation, labels.shape[1]).to(device)
             optimizer = getattr(torch.optim, optimizer_name)(model.parameters(), lr=lr)
-            criterion = MEnet.OneHotCrossEntropy()
+            criterion = utils.OneHotCrossEntropy()
     
             # initialize the early_stopping object
-            early_stopping = MEnet.EarlyStopping(patience=patience, verbose=False)
+            early_stopping = utils.EarlyStopping(patience=patience, verbose=False)
         
             list_loss = []
             list_valloss = []

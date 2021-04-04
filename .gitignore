@@ -133,3 +133,4 @@ out
 tmp_menet
 .ipynb_checkpoints
 data/*.win*.bed.gz
+test
