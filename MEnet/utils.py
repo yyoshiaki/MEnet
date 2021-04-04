@@ -26,13 +26,25 @@ class Mixup_dataset(torch.utils.data.Dataset):
         self.label = label
         self.channel = label.shape[1]
         self.n_choise = n_choise
-        self.noise = 1/noise
-        self.dropout = np.random.uniform(dropout)
+        if noise:
+            self.noise = 1/noise
+        else:
+            self.noise = None
+
+        if dropout:
+            self.dropout = np.random.uniform(dropout)
+        else:
+            self.dropout = None
+
         self.device = device
-        with np.errstate(invalid='ignore'):
-            self.p = np.matmul(np.minimum(1 / label.sum(axis=0), np.ones(label.shape[1])),
-                           label.T)
-        self.p /= self.p.sum()
+
+        if self.transform == 'mix':
+            with np.errstate(invalid='ignore'):
+                self.p = np.matmul(np.minimum(1 / label.sum(axis=0), np.ones(label.shape[1])),
+                            label.T)
+            self.p /= self.p.sum()
+        else:
+            self.transform = None
 
 
     def __len__(self):

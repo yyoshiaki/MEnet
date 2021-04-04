@@ -1,6 +1,7 @@
 import os
 import yaml
 import sys 
+import argparse
 
 from pickle import dump
 from pickle import load
@@ -50,6 +51,7 @@ def train(args):
     N_TRIALS = dict_input['n_trials']
     patience = dict_input['patience']
     seed = dict_input['seed']
+    batch_size = dict_input['batch_size']
     np.random.seed(seed)
 
     verbose = True
@@ -123,13 +125,16 @@ def train(args):
 
             imp.fit(x_train)
 
-            x_test = torch.FloatTensor(imp.transform(x_test)).to(device)
-            y_test = torch.FloatTensor(y_test).to(device)
-
-            data_set = utils.Mixup_dataset(x_train, y_train, transform='mix', imputation=imp,
+            dataset = utils.Mixup_dataset(x_train, y_train, transform='mix', imputation=imp,
                                         noise=0.01, n_choise=10, dropout=0.4, device=device)
-            dataloader = torch.utils.data.DataLoader(data_set, batch_size=100, shuffle=True)
+            dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True)
 
+            dataset_test = utils.Mixup_dataset(x_test, y_test, transform='unmix', imputation=imp,
+                                        noise=None, dropout=None, device=device)
+            dataloader_test = torch.utils.data.DataLoader(dataset_test, batch_size=batch_size, shuffle=False)
+
+            y_test = torch.FloatTensor(y_test).to(device)
+            
             # Generate the model.
             model = models.MEnet(x_test.shape[1], hidden_dim, dropout_rate, 
                         n_layers, activation, labels.shape[1]).to(device)
@@ -143,6 +148,7 @@ def train(args):
             list_valloss = []
             list_stopepoch = []
             for e in range(EPOCHS):
+                model.train()
                 for i, (data, y_target) in enumerate(dataloader):
                     optimizer.zero_grad()
                     y_pred = model(data)
@@ -154,10 +160,14 @@ def train(args):
                     optimizer.step()
 
                 model.eval()
+                l_pred_test = []
                 with torch.no_grad():
-                    y_pred = model(x_test)
-                    valloss = criterion(y_pred, y_test) 
-                    list_valloss.append(valloss.item())
+                    for i, (data_test, _) in enumerate(dataloader_test):
+                        l_pred_test.append(model(data_test).cpu().numpy())
+                y_pred_test = np.concatenate(l_pred_test)
+                y_pred_test = torch.FloatTensor(y_pred_test).to(device)   
+                valloss = criterion(y_pred_test, y_test) 
+                list_valloss.append(valloss.item())
     #                 writer.add_scalar("Loss/validation", valloss, e)
                 
                 if (verbose) & (e % 1000 == 0) & (fold == 0):
@@ -223,4 +233,8 @@ def train(args):
     fig.write_image('{}/CV_history.pdf'.format(dir_output))    
 
 if __name__ == "__main__":
-    train(sys.argv[1])
+    parser = argparse.ArgumentParser()
+    args = parser.parse_args()
+    args.input_yaml = 'test/train/210228_optuna_CV.yaml'
+    args.device = 'cpu'
+    train(args)

@@ -38,7 +38,7 @@ def main():
     # train
     parser_train = subparsers.add_parser('train', help='see `train -h`')
     parser_train.add_argument('input_yaml', action='store', help='input yaml file.')
-    parser_predict.add_argument('--device', type=str, default=None, help='device for pytorch. (ex. cpu, cuda)')
+    parser_train.add_argument('--device', type=str, default=None, help='device for pytorch. (ex. cpu, cuda)')
     parser_train.set_defaults(handler=command_train)
 
     # predict
