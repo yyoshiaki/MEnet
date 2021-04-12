@@ -18,7 +18,7 @@ import numpy as np
 class Mixup_dataset(torch.utils.data.Dataset):
 
     def __init__(self, data, label, transform='mix', imputation=None, 
-    noise=0.01, n_choise=10, dropout=0.4, device=torch.device("cpu")):
+    noise=0.01, n_choise=10, dropout=0.4):
         self.transform = transform
         self.imputation = imputation
         self.data_num = data.shape[0]
@@ -35,8 +35,6 @@ class Mixup_dataset(torch.utils.data.Dataset):
             self.dropout = np.random.uniform(dropout)
         else:
             self.dropout = None
-
-        self.device = device
 
         if self.transform == 'mix':
             with np.errstate(invalid='ignore'):
@@ -76,10 +74,15 @@ class Mixup_dataset(torch.utils.data.Dataset):
             out_data = self.imputation.transform(out_data.reshape((1,out_data.shape[0]))
                                                 ).reshape(out_data.shape[0])
             
-        out_data = torch.from_numpy(out_data).to(self.device).float()
-        out_label = torch.from_numpy(out_label).to(self.device)
+        out_data = torch.from_numpy(out_data).float()
+        out_label = torch.from_numpy(out_label)
         return out_data, out_label
     
+
+# https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects/
+def worker_init_fn(worker_id):                                                          
+    np.random.seed(np.random.get_state()[1][0] + worker_id)
+
 
 class OneHotCrossEntropy(_WeightedLoss):
     def __init__(self, weight=None, reduction='mean'):
@@ -96,7 +99,7 @@ class OneHotCrossEntropy(_WeightedLoss):
         elif  self.reduction == 'mean':
             loss = loss.mean()
         return loss
-    
+
     
 class SmoothCrossEntropy(nn.Module):
     # From https://www.kaggle.com/shonenkov/train-inference-gpu-baseline

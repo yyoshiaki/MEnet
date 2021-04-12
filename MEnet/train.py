@@ -126,11 +126,12 @@ def train(args):
             imp.fit(x_train)
 
             dataset = utils.Mixup_dataset(x_train, y_train, transform='mix', imputation=imp,
-                                        noise=0.01, n_choise=10, dropout=0.4, device=device)
-            dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True)
+                                        noise=0.01, n_choise=10, dropout=0.4)
+            dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True,
+                                        num_workers=os.cpu_count(), worker_init_fn=utils.worker_init_fn)
 
             dataset_test = utils.Mixup_dataset(x_test, y_test, transform='unmix', imputation=imp,
-                                        noise=None, dropout=None, device=device)
+                                        noise=None, dropout=None)
             dataloader_test = torch.utils.data.DataLoader(dataset_test, batch_size=batch_size, shuffle=False)
 
             y_test = torch.FloatTensor(y_test).to(device)
@@ -150,6 +151,9 @@ def train(args):
             for e in range(EPOCHS):
                 model.train()
                 for i, (data, y_target) in enumerate(dataloader):
+                    data = data.to(device)
+                    y_target = y_target.to(device)
+
                     optimizer.zero_grad()
                     y_pred = model(data)
                     loss = criterion(y_pred, y_target)
@@ -163,6 +167,7 @@ def train(args):
                 l_pred_test = []
                 with torch.no_grad():
                     for i, (data_test, _) in enumerate(dataloader_test):
+                        data_test = data_test.to(device)
                         l_pred_test.append(model(data_test).cpu().numpy())
                 y_pred_test = np.concatenate(l_pred_test)
                 y_pred_test = torch.FloatTensor(y_pred_test).to(device)   
