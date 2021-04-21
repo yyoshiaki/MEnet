@@ -35,6 +35,10 @@ optional arguments:
 ## For development
 
 ```
+conda env create --file conda_env.yaml
+```
+
+```
 conda activate menet_dev
 ```
 
@@ -54,6 +58,12 @@ ex.
 
 ```
 python cli.py train --help
+```
+
+export the environment
+
+```
+conda env export > conda_env.yaml
 ```
 
 ## Contact

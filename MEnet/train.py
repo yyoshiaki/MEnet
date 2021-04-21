@@ -14,7 +14,8 @@ import seaborn as sns
 from sklearn.impute import SimpleImputer
 # from sklearn.model_selection import KFold
 # from sklearn.model_selection import train_test_split
-from sklearn.model_selection import ShuffleSplit
+# from sklearn.model_selection import ShuffleSplit
+from sklearn.model_selection import StratifiedShuffleSplit
 
 import torch
 import torch.nn as nn
@@ -95,7 +96,8 @@ def train(args):
             
 
     # https://scikit-learn.org/stable/modules/cross_validation.html
-    ss = ShuffleSplit(n_splits=n_splits, test_size=1/n_splits, random_state=seed)
+    # ss = ShuffleSplit(n_splits=n_splits, test_size=1/n_splits, random_state=seed)
+    ss = StratifiedShuffleSplit(n_splits=n_splits, test_size=1/n_splits, random_state=seed)
     X = np.array(df).T
 
     def objective(trial):
@@ -111,7 +113,8 @@ def train(args):
         
         
         cv = 0
-        for fold, (train_index, test_index) in enumerate(ss.split(X)):
+        # for fold, (train_index, test_index) in enumerate(ss.split(X)):
+        for fold, (train_index, test_index) in enumerate(ss.split(X, labels)):
     #         print('FOLD : {}'.format(fold))
             x_train = X[train_index]
             y_train = np.array(labels)[train_index]
