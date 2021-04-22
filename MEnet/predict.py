@@ -90,27 +90,36 @@ def predict(args):
 
     # print(model_params[0])
     model = models.MEnet(*model_params[0])
-    model.load_state_dict(model_params[1])
-    model = model.to(device)
-    model.eval()
+
+    list_best_models = [model.load_state_dict(p).to(device) for p in model_params[1]]
+    # model.load_state_dict(model_params[1])
+    # model = model.to(device)
+    # model.eval()
 
     idx_regions = model_params[2]
     cell_labels = model_params[3]
     imp = model_params[4]
     df_cat = model_params[5]
 
+    n_cat = df_cat.shape[0]
     # print(idx_regions[:3])
     
     X, cols = read_input(args.input, args.input_type, idx_regions, args.output_dir, args.bedtools)
     # print(X.shape)
 
-    y_pred = model(torch.FloatTensor(imp.transform(X)).to(device))
-    # print(F.softmax(y_pred).cpu().detach().numpy())
+    y_pred_cv = np.zeros([n_cat, cols.shape[0]])
+    for model in list_best_models:
+        model.eval()
+        
+        y_pred = model(torch.FloatTensor(imp.transform(X)).to(device))
+        # print(F.softmax(y_pred).cpu().detach().numpy())
+        y_pred = F.softmax(y_pred).cpu().detach().numpy().T
+        y_pred_cv += y_pred
 
-    df_pred = pd.DataFrame(F.softmax(y_pred).cpu().detach().numpy().T)
+    df_pred = pd.DataFrame(y_pred_cv)
     df_pred.index = cell_labels
     df_pred.columns = cols
-    df_pred = df_pred.loc[df_cat['MinorGroup']]
+    df_pred = df_pred / df_pred.sum()
 
     print(df_pred)
     df_pred.to_csv('{}/cell_proportion_MinorGroup.csv'.format(args.output_dir))
