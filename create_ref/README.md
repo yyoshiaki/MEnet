@@ -179,3 +179,24 @@ We adopted only 450K or EPIC array as input. First, methylatiom rate (beta value
 ```
 python array2bismark.py
 ```
+
+### Encode
+
+```
+python convert_encode.bdg_biscov.py
+python convert_AMED-CREST.py
+```
+
+### Blueprint
+
+```
+convert_blueprint_biscov.py
+```
+
+### PRJNA343855 (Blueprint HSC)
+
+```
+python convert_PRJNA343855.py
+````
+
+

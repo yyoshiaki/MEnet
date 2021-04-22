@@ -91,14 +91,14 @@ def predict(args):
     # print(model_params[0])
     model = models.MEnet(*model_params[0])
 
-    list_best_models = [model.load_state_dict(p).to(device) for p in model_params[1]]
+    list_best_models_states = model_params[1]
     # model.load_state_dict(model_params[1])
     # model = model.to(device)
     # model.eval()
 
     idx_regions = model_params[2]
     cell_labels = model_params[3]
-    imp = model_params[4]
+    list_imp = model_params[4]
     df_cat = model_params[5]
 
     n_cat = df_cat.shape[0]
@@ -108,7 +108,9 @@ def predict(args):
     # print(X.shape)
 
     y_pred_cv = np.zeros([n_cat, cols.shape[0]])
-    for model in list_best_models:
+    for imp, states in zip(list_imp, list_best_models_states):
+        model = models.MEnet(*model_params[0])
+        model.load_state_dict(states).to(device)
         model.eval()
         
         y_pred = model(torch.FloatTensor(imp.transform(X)).to(device))

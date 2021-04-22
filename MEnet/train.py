@@ -3,8 +3,9 @@ import yaml
 import sys 
 import argparse
 
-from pickle import dump
-from pickle import load
+# from pickle import dump
+# from pickle import load
+import pickle
 
 import numpy as np
 import pandas as pd
@@ -45,6 +46,7 @@ def train(args):
     f_integrated = dict_input['integrated']
     f_pickle = dict_input['pickle']
     f_ref = dict_input['ref_table']
+    f_category = dict_input['category']
     dir_output = dict_input['output_dir']
     n_splits = dict_input['n_splits']
     fill = dict_input['fill']
@@ -58,11 +60,14 @@ def train(args):
     verbose = True
 
     os.makedirs(dir_output, exist_ok=True)
+    os.makedirs(dir_output + '/model_params', exist_ok=True)
 
     if args.device:
         device = torch.device(args.device)
     else:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+    df_cat = pd.read_csv(f_category)
 
     df_ref = pd.read_csv(f_ref)
     # df_ref.head()
@@ -111,8 +116,10 @@ def train(args):
         optimizer_name = trial.suggest_categorical("optimizer", ["Adam", "RMSprop", "SGD"])
         lr = trial.suggest_float("lr", 1e-5, 1e-1, log=True)
         
-        
         cv = 0
+        list_best_models_states = []
+        list_best_epoch = []
+        list_imp = []
         # for fold, (train_index, test_index) in enumerate(ss.split(X)):
         for fold, (train_index, test_index) in enumerate(ss.split(X, labels)):
     #         print('FOLD : {}'.format(fold))
@@ -127,6 +134,7 @@ def train(args):
                 imp = SimpleImputer(missing_values=np.nan, strategy='median')
 
             imp.fit(x_train)
+            list_imp.append(imp)
 
             dataset = utils.Mixup_dataset(x_train, y_train, transform='mix', imputation=imp,
                                         noise=0.01, n_choise=10, dropout=0.4)
@@ -150,7 +158,10 @@ def train(args):
         
             list_loss = []
             list_valloss = []
-            list_stopepoch = []
+            # list_stopepoch = []
+            best_loss = np.inf
+            best_state = None
+            best_epoch = None
             for e in range(EPOCHS):
                 model.train()
                 for i, (data, y_target) in enumerate(dataloader):
@@ -178,6 +189,11 @@ def train(args):
                 list_valloss.append(valloss.item())
     #                 writer.add_scalar("Loss/validation", valloss, e)
                 
+                if valloss < best_loss:
+                    best_state = {k: v.cpu() for k, v in model.state_dict().items()}
+                    best_loss = valloss
+                    best_epoch = e
+
                 if (verbose) & (e % 1000 == 0) & (fold == 0):
                     print('Epoch {}: train loss: {} validation loss: {}'.format(e, loss.item(), valloss.item()))
                     
@@ -194,10 +210,21 @@ def train(args):
     #                 print("Early stopping")
                     break
             
-            list_stopepoch.append(e)
+            # list_stopepoch.append(e)
     #     print(list_stopepoch)
-        trial.set_user_attr('best_epoch', int(np.mean(list_stopepoch)-patience))
-        cv += min(list_valloss) / n_splits
+        
+            cv += min(list_valloss) / n_splits
+        
+            list_best_models_states.append(best_state)
+            list_best_epoch.append(best_epoch)
+            if verbose:
+                print('Best Epoch : ', best_epoch, 'Best Loss : ', best_loss)
+
+        trial.set_user_attr('best_epoch', list_best_epoch)
+
+        with open("{d}/model_params/{n}.pickle".format(d=dir_output, n=trial.number), "wb") as fout:
+            pickle.dump([list_imp, list_best_models_states])
+            
         return cv
 
 
@@ -216,7 +243,7 @@ def train(args):
     trial = study.best_trial
     trial.params['best_epoch'] = trial.user_attrs['best_epoch']
 
-    print("  Value: ", trial.value)
+    print("  Best CV: ", trial.value)
 
     print("  Params: ")
     for key, value in trial.params.items():
@@ -226,7 +253,22 @@ def train(args):
         
     with open('{}/CV_best_params.yaml'.format(dir_output), 'w') as file:
         yaml.dump(trial.params, file)
-              
+
+    with open("{d}/model_params/{n}.pickle".format(d=dir_output, n=study.best_trial.number), "rb") as fin:
+        list_imp, list_best_models_states = pickle.load(fin)
+
+    ################
+    model_params = [[X.shape[1], trial.params['hidden_dim'], 
+                     trial.params['dropout_rate'], trial.params['n_layers'], 
+                     trial.params['activation'], labels.shape[1]],
+                 list_best_models_states,
+               list(df.index), list(labels.columns), list_imp, df_cat]
+
+    with open("{d}/best_model.pickle".format(d=dir_output), mode='wb') as f:
+        pickle.dump(model_params, f)
+    
+    ##########
+
     fig = optuna.visualization.plot_intermediate_values(study)
     fig.update_yaxes(range=(0,10))
     fig.write_image('{}/CV_int.pdf'.format(dir_output))
