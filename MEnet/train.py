@@ -204,8 +204,8 @@ def train(args):
                     best_loss = valloss
                     best_epoch = e
 
-                if (verbose) & (e % 1000 == 0) & (fold == 0):
-                    print('Epoch {}: train loss: {} validation loss: {}'.format(e, loss.item(), valloss.item()))
+                # if (verbose) & (e % 1000 == 0) & (fold == 0):
+                #     print('Epoch {}: train loss: {} validation loss: {}'.format(e, loss.item(), valloss.item()))
                     
                 if fold == 0:
                     trial.report(valloss, e)

@@ -11,7 +11,7 @@ MEnet is a neural-net based deconvolution method for methylation data. MEnet can
 
 ## Usage
 
-### prediction
+### Prediction
 
 ```
 usage: MEnet predict [-h] -i input -m model
@@ -32,9 +32,9 @@ optional arguments:
   --device DEVICE       device for pytorch. (ex. cpu, cuda)
 ```
 
-### training (advanced usage)
+### Training (advanced usage)
 
-Before training, users need to create the reference matrix, categories, and input yaml. Details are on the directory `create_ref`.
+Users can define and train models. Before training, users need to create the reference matrix, categories, and input yaml. Details are on the directory `create_ref`.
 
 ```
 usage: MEnet train [-h] [--device DEVICE] input_yaml
