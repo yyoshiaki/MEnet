@@ -119,7 +119,7 @@ def train(args):
 
         n_layers = trial.suggest_int("n_layers", 2, 10)
         hidden_dim = trial.suggest_int("hidden_dim", 100, 3000, 100)
-        dropout_rate = trial.suggest_float("dropout_rate", 0, 1)
+        dropout_rate = trial.suggest_float("dropout_rate", 0, 0.8)
         activation = trial.suggest_categorical("activation", ["relu", 'tanh', 'leakyrelu'])
 
         # Generate the optimizers.
@@ -232,8 +232,8 @@ def train(args):
 
         trial.set_user_attr('best_epoch', list_best_epoch)
 
-        with open("{d}/model_params/{n}.pickle".format(d=dir_output, n=trial.number), "wb") as fout:
-            pickle.dump([list_imp, list_best_models_states])
+        with open("{d}/model_params/{n}.pickle".format(d=dir_output, n=trial.number), "wb") as f_out:
+            pickle.dump([list_imp, list_best_models_states], f_out)
             
         return cv
 

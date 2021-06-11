@@ -5,6 +5,7 @@ import pickle
 import os
 import json
 import datetime
+import argparse
 
 import numpy as np
 import pandas as pd
@@ -46,9 +47,12 @@ def read_input(f_input, input_type, idx_regions, dir_out, p_bedtools):
 
     # print(input_type)
     if input_type == 'bismark':
-        print('Tiling bismark cov...')
-        df_input = utils.tile_bismark(f_input, tile_bp, p_bedtools)
-        df_input.to_csv('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=df_input.columns[0], t=tile_bp))
+        if not os.path.exists('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=f_input.split('/')[-1].split('.bis')[0], t=tile_bp)):
+            print('Tiling bismark cov...')
+            df_input = utils.tile_bismark(f_input, tile_bp, p_bedtools)
+            df_input.to_csv('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=df_input.columns[0], t=tile_bp))
+        else:
+            df_input = pd.read_csv('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=f_input.split('/')[-1].split('.bis')[0], t=tile_bp), index_col=0)
 
     if input_type == 'array':
         print('Proccessing microarray data...')
@@ -78,12 +82,12 @@ def predict(args):
         f.writelines('MEnet version : {} \n'.format(_version.__version__))
         f.writelines(t.isoformat(timespec='minutes'))
 
-    if args.device:
-        device = torch.device(args.device)
-    else:
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # device = torch.device("cpu")
-    print("device : ", device)
+    # if args.device:
+    #     device = torch.device(args.device)
+    # else:
+    #     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    # # device = torch.device("cpu")
+    # print("device : ", device)
 
     with open(args.model, mode='rb') as f:
         model_params = pickle.load(f)
@@ -107,13 +111,13 @@ def predict(args):
     X, cols = read_input(args.input, args.input_type, idx_regions, args.output_dir, args.bedtools)
     # print(X.shape)
 
-    y_pred_cv = np.zeros([n_cat, cols.shape[0]])
+    y_pred_cv = np.zeros([n_cat, len(cols)])
     for imp, states in zip(list_imp, list_best_models_states):
         model = models.MEnet(*model_params[0])
-        model.load_state_dict(states).to(device)
+        model.load_state_dict(states) #.to(device)
         model.eval()
         
-        y_pred = model(torch.FloatTensor(imp.transform(X)).to(device))
+        y_pred = model(torch.FloatTensor(imp.transform(X))) #.to(device))
         # print(F.softmax(y_pred).cpu().detach().numpy())
         y_pred = F.softmax(y_pred).cpu().detach().numpy().T
         y_pred_cv += y_pred
@@ -168,4 +172,14 @@ def predict(args):
 
     print('completed!')
 
-    
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    args = parser.parse_args()
+    args.input = 'test/predict/Minion_STR1_Fr6.bis.cov.gz'
+    args.model = 'test/train/210228_optuna_CV/best_model.pickle'
+    args.input_type = 'bismark'
+    args.output_dir = 'test/predict/Minion_STR1_Fr6'
+    args.bedtools = 'bedtools'
+    # args.device = 'cpu'
+
+    predict(args)
