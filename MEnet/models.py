@@ -7,7 +7,7 @@ import torch.nn.functional as F
 
 
 class MEnet(torch.nn.Module):
-    
+
     def __init__(self, input_dim, hidden_dim, dropout_rate, n_layers, activation, output_size):
         super().__init__()
         self.input_dim = input_dim
@@ -36,13 +36,12 @@ class MEnet(torch.nn.Module):
                 middle.append(nn.BatchNorm1d(hidden_dim))
                 middle.append(ac())
 
-            self.middle_layers = nn.Sequential(*middle) 
+            self.middle_layers = nn.Sequential(*middle)
         self.output_layer = nn.Linear(hidden_dim, output_size)
- 
- 
+
     def forward(self, x):
         x = self.input_layer(x)
         if self.n_mid_layers > 0:
             x = self.middle_layers(x)
         x = self.output_layer(x)
-        return x 
+        return x

@@ -19,7 +19,7 @@ from tqdm import tqdm
 
 from MEnet import models, utils, _version
 
-mpl.rcParams['figure.facecolor'] = (1,1,1,1)
+mpl.rcParams['figure.facecolor'] = (1, 1, 1, 1)
 mpl.rcParams['pdf.fonttype'] = 42
 mpl.rcParams['ps.fonttype'] = 42
 
@@ -50,9 +50,11 @@ def read_input(f_input, input_type, idx_regions, dir_out, p_bedtools):
         if not os.path.exists('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=f_input.split('/')[-1].split('.bis')[0], t=tile_bp)):
             print('Tiling bismark cov...')
             df_input = utils.tile_bismark(f_input, tile_bp, p_bedtools)
-            df_input.to_csv('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=df_input.columns[0], t=tile_bp))
+            df_input.to_csv(
+                '{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=df_input.columns[0], t=tile_bp))
         else:
-            df_input = pd.read_csv('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=f_input.split('/')[-1].split('.bis')[0], t=tile_bp), index_col=0)
+            df_input = pd.read_csv('{d}/{n}.tile{t}bp.csv'.format(
+                d=dir_out, n=f_input.split('/')[-1].split('.bis')[0], t=tile_bp), index_col=0)
 
     if input_type == 'array':
         print('Proccessing microarray data...')
@@ -61,7 +63,7 @@ def read_input(f_input, input_type, idx_regions, dir_out, p_bedtools):
     # print(df_input.head())
 
     df_input = df_input.reindex(idx_regions)
-    df_input = pd.DataFrame(df_input) # in case df_input is series
+    df_input = pd.DataFrame(df_input)  # in case df_input is series
 
     return np.array(df_input).T, list(df_input.columns)
 
@@ -71,14 +73,15 @@ def predict(args):
     t = datetime.datetime.now()
 
     os.makedirs(args.output_dir, exist_ok=True)
-    
-    # save args
-    with open("{d}/params.{t}.json".format(d=args.output_dir, t=t.strftime('%Y%m%d_%H%M%S')), 
-                mode="w") as f:
-        json.dump(args.__dict__, f, indent=4, default=lambda o: '<not serializable>')
 
-    with open("{d}/MEnet.{t}.log".format(d=args.output_dir, t=t.strftime('%Y%m%d_%H%M%S')), 
-                mode="w") as f:
+    # save args
+    with open("{d}/params.{t}.json".format(d=args.output_dir, t=t.strftime('%Y%m%d_%H%M%S')),
+              mode="w") as f:
+        json.dump(args.__dict__, f, indent=4,
+                  default=lambda o: '<not serializable>')
+
+    with open("{d}/MEnet.{t}.log".format(d=args.output_dir, t=t.strftime('%Y%m%d_%H%M%S')),
+              mode="w") as f:
         f.writelines('MEnet version : {} \n'.format(_version.__version__))
         f.writelines(t.isoformat(timespec='minutes'))
 
@@ -107,19 +110,21 @@ def predict(args):
 
     n_cat = df_cat.shape[0]
     # print(idx_regions[:3])
-    
-    X, cols = read_input(args.input, args.input_type, idx_regions, args.output_dir, args.bedtools)
+
+    X, cols = read_input(args.input, args.input_type,
+                         idx_regions, args.output_dir, args.bedtools)
     # print(X.shape)
 
     y_pred_cv = np.zeros([n_cat, len(cols)])
     for imp, states in zip(list_imp, list_best_models_states):
         model = models.MEnet(*model_params[0])
-        model.load_state_dict(states) #.to(device)
+        model.load_state_dict(states)  # .to(device)
         model.eval()
-        
-        y_pred = model(torch.FloatTensor(imp.transform(X))) #.to(device))
+
+        y_pred = model(torch.FloatTensor(imp.transform(X)))  # .to(device))
         # print(F.softmax(y_pred).cpu().detach().numpy())
-        y_pred = F.softmax(y_pred).cpu().detach().numpy().T
+        y_pred = F.softmax(
+            y_pred, dim=y_pred.shape[0]).cpu().detach().numpy().T
         y_pred_cv += y_pred
 
     df_pred = pd.DataFrame(y_pred_cv)
@@ -133,44 +138,44 @@ def predict(args):
     print('plotting...')
     for c in tqdm(df_pred.columns):
         c_rep = c.replace('/', '_')
-        plt.figure(figsize=(6,2))
+        plt.figure(figsize=(6, 2))
         df_pred[c].plot.bar()
         plt.title(c_rep)
-        plt.ylim(0,1)
-        plt.savefig('{d}/barplot_cell_proportion_MinorGroup_{c}.pdf'.format(d=args.output_dir, c=c_rep), 
+        plt.ylim(0, 1)
+        plt.savefig('{d}/barplot_cell_proportion_MinorGroup_{c}.pdf'.format(d=args.output_dir, c=c_rep),
                     bbox_inches='tight')
 
-    plt.figure(figsize=(4+0.4*df_pred.shape[1],8))
+    plt.figure(figsize=(4+0.4*df_pred.shape[1], 8))
     sns.heatmap(df_pred, vmin=0, vmax=1, cmap='viridis', square=True)
     plt.title("Minor Category")
-    plt.savefig('{d}/heatmap_cell_proportion_MinorGroup.pdf'.format(d=args.output_dir), 
+    plt.savefig('{d}/heatmap_cell_proportion_MinorGroup.pdf'.format(d=args.output_dir),
                 bbox_inches='tight')
-
 
     df_pred['MinorGroup'] = df_pred.index
     df_pred = pd.merge(df_pred, df_cat, how='left').groupby(by='Tissue').\
-                sum().loc[df_cat['Tissue'].drop_duplicates()]
-    
+        sum().loc[df_cat['Tissue'].drop_duplicates()]
+
     print(df_pred)
     df_pred.to_csv('{}/cell_proportion_MajorGroup.csv'.format(args.output_dir))
 
     print('plotting...')
     for c in tqdm(df_pred.columns):
         c_rep = c.replace('/', '_')
-        plt.figure(figsize=(6,2))
+        plt.figure(figsize=(6, 2))
         df_pred[c].plot.bar()
         plt.title(c_rep)
-        plt.ylim(0,1)
-        plt.savefig('{d}/barplot_cell_proportion_MajorGroup_{c}.pdf'.format(d=args.output_dir, c=c_rep), 
+        plt.ylim(0, 1)
+        plt.savefig('{d}/barplot_cell_proportion_MajorGroup_{c}.pdf'.format(d=args.output_dir, c=c_rep),
                     bbox_inches='tight')
 
-    plt.figure(figsize=(4+0.4*df_pred.shape[1],8))
+    plt.figure(figsize=(4+0.4*df_pred.shape[1], 8))
     sns.heatmap(df_pred, vmin=0, vmax=1, cmap='viridis', square=True)
     plt.title("Major Category")
-    plt.savefig('{d}/heatmap_cell_proportion_MajorGroup.pdf'.format(d=args.output_dir), 
+    plt.savefig('{d}/heatmap_cell_proportion_MajorGroup.pdf'.format(d=args.output_dir),
                 bbox_inches='tight')
 
     print('completed!')
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

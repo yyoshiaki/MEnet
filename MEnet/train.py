@@ -1,6 +1,6 @@
 import os
 import yaml
-import sys 
+import sys
 import argparse
 
 # from pickle import dump
@@ -73,13 +73,15 @@ def train(args):
     df_ref = pd.read_csv(f_ref)
     # df_ref.head()
 
-    df_ref_assigned = df_ref[df_ref.MinorGroup.isin(list(df_cat['MinorGroup']))]
-    
+    df_ref_assigned = df_ref[df_ref.MinorGroup.isin(
+        list(df_cat['MinorGroup']))]
+
     if df_ref_assigned.MinorGroup.value_counts()[
-        df_ref_assigned.MinorGroup.value_counts() >= 2].shape[0] > 0:
+            df_ref_assigned.MinorGroup.value_counts() >= 2].shape[0] > 0:
         print('dropped labels (<2 samples) : ', df_ref_assigned.MinorGroup.value_counts()[
-        df_ref_assigned.MinorGroup.value_counts() < 2].index)
-    labels = df_ref_assigned.MinorGroup.value_counts()[df_ref_assigned.MinorGroup.value_counts() >= 2].index
+            df_ref_assigned.MinorGroup.value_counts() < 2].index)
+    labels = df_ref_assigned.MinorGroup.value_counts(
+    )[df_ref_assigned.MinorGroup.value_counts() >= 2].index
     df_ref_assigned = df_ref_assigned[df_ref_assigned.MinorGroup.isin(labels)]
     df_cat = df_cat[df_cat['MinorGroup'].isin(labels)]
 
@@ -94,10 +96,11 @@ def train(args):
         df_selected = df_selected.drop_duplicates()
         # df_selected.head()
 
-        df_all = pd.read_csv(f_integrated, index_col = 0)
+        df_all = pd.read_csv(f_integrated, index_col=0)
         # df_all.head()
 
-        df_all.index = df_all['chr'] + ':' + df_all['start'].astype(str) + '-' + df_all['end'].astype(str)
+        df_all.index = df_all['chr'] + ':' + \
+            df_all['start'].astype(str) + '-' + df_all['end'].astype(str)
         df = df_all.loc[df_selected.index]
         df_all = None
 
@@ -109,10 +112,11 @@ def train(args):
 
     # if df.shape[0] != df_ref_assigned.shape[0]:
     #     raise ValueError('The input file is incompatible form. Try to delete the picke file.')
-    
+
     # https://scikit-learn.org/stable/modules/cross_validation.html
     # ss = ShuffleSplit(n_splits=n_splits, test_size=1/n_splits, random_state=seed)
-    ss = StratifiedShuffleSplit(n_splits=n_splits, test_size=1/n_splits, random_state=seed)
+    ss = StratifiedShuffleSplit(
+        n_splits=n_splits, test_size=1/n_splits, random_state=seed)
     X = np.array(df).T
 
     def objective(trial):
@@ -120,26 +124,29 @@ def train(args):
         n_layers = trial.suggest_int("n_layers", 2, 10)
         hidden_dim = trial.suggest_int("hidden_dim", 100, 3000, 100)
         dropout_rate = trial.suggest_float("dropout_rate", 0, 0.8)
-        activation = trial.suggest_categorical("activation", ["relu", 'tanh', 'leakyrelu'])
+        activation = trial.suggest_categorical(
+            "activation", ["relu", 'tanh', 'leakyrelu'])
 
         # Generate the optimizers.
-        optimizer_name = trial.suggest_categorical("optimizer", ["Adam", "RMSprop", "SGD"])
+        optimizer_name = trial.suggest_categorical(
+            "optimizer", ["Adam", "RMSprop", "SGD"])
         lr = trial.suggest_float("lr", 1e-5, 1e-1, log=True)
-        
+
         cv = 0
         list_best_models_states = []
         list_best_epoch = []
         list_imp = []
         # for fold, (train_index, test_index) in enumerate(ss.split(X)):
         for fold, (train_index, test_index) in enumerate(ss.split(X, labels)):
-    #         print('FOLD : {}'.format(fold))
+            #         print('FOLD : {}'.format(fold))
             x_train = X[train_index]
             y_train = np.array(labels)[train_index]
             x_test = X[test_index]
             y_test = np.array(labels)[test_index]
 
             if str(fill).isdigit():
-                imp = SimpleImputer(missing_values=np.nan, strategy='constant', fill_value=fill)
+                imp = SimpleImputer(missing_values=np.nan,
+                                    strategy='constant', fill_value=fill)
             elif fill in ['median', 'mean', 'most_frequent']:
                 imp = SimpleImputer(missing_values=np.nan, strategy='median')
 
@@ -147,25 +154,28 @@ def train(args):
             list_imp.append(imp)
 
             dataset = utils.Mixup_dataset(x_train, y_train, transform='mix', imputation=imp,
-                                        noise=0.01, n_choise=10, dropout=0.4)
+                                          noise=0.01, n_choise=10, dropout=0.4)
             dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True,
-                                        num_workers=os.cpu_count(), worker_init_fn=utils.worker_init_fn)
+                                                     num_workers=os.cpu_count(), worker_init_fn=utils.worker_init_fn)
 
             dataset_test = utils.Mixup_dataset(x_test, y_test, transform='unmix', imputation=imp,
-                                        noise=None, dropout=None)
-            dataloader_test = torch.utils.data.DataLoader(dataset_test, batch_size=batch_size, shuffle=False)
+                                               noise=None, dropout=None)
+            dataloader_test = torch.utils.data.DataLoader(
+                dataset_test, batch_size=batch_size, shuffle=False)
 
             y_test = torch.FloatTensor(y_test).to(device)
-            
+
             # Generate the model.
-            model = models.MEnet(x_test.shape[1], hidden_dim, dropout_rate, 
-                        n_layers, activation, labels.shape[1]).to(device)
-            optimizer = getattr(torch.optim, optimizer_name)(model.parameters(), lr=lr)
+            model = models.MEnet(x_test.shape[1], hidden_dim, dropout_rate,
+                                 n_layers, activation, labels.shape[1]).to(device)
+            optimizer = getattr(torch.optim, optimizer_name)(
+                model.parameters(), lr=lr)
             criterion = utils.OneHotCrossEntropy()
-    
+
             # initialize the early_stopping object
-            early_stopping = utils.EarlyStopping(patience=patience, verbose=False)
-        
+            early_stopping = utils.EarlyStopping(
+                patience=patience, verbose=False)
+
             list_loss = []
             list_valloss = []
             # list_stopepoch = []
@@ -194,37 +204,38 @@ def train(args):
                         data_test = data_test.to(device)
                         l_pred_test.append(model(data_test).cpu().numpy())
                 y_pred_test = np.concatenate(l_pred_test)
-                y_pred_test = torch.FloatTensor(y_pred_test).to(device)   
-                valloss = criterion(y_pred_test, y_test) 
+                y_pred_test = torch.FloatTensor(y_pred_test).to(device)
+                valloss = criterion(y_pred_test, y_test)
                 list_valloss.append(valloss.item())
     #                 writer.add_scalar("Loss/validation", valloss, e)
-                
+
                 if valloss < best_loss:
-                    best_state = {k: v.cpu() for k, v in model.state_dict().items()}
+                    best_state = {k: v.cpu()
+                                  for k, v in model.state_dict().items()}
                     best_loss = valloss
                     best_epoch = e
 
                 # if (verbose) & (e % 1000 == 0) & (fold == 0):
                 #     print('Epoch {}: train loss: {} validation loss: {}'.format(e, loss.item(), valloss.item()))
-                    
+
                 if fold == 0:
                     trial.report(valloss, e)
 
                     # Handle pruning based on the intermediate value.
                     if trial.should_prune():
                         raise optuna.exceptions.TrialPruned()
-                        
+
                 early_stopping(valloss)
-            
+
                 if early_stopping.early_stop:
-    #                 print("Early stopping")
+                    #                 print("Early stopping")
                     break
-            
+
             # list_stopepoch.append(e)
     #     print(list_stopepoch)
-        
+
             cv += min(list_valloss) / n_splits
-        
+
             list_best_models_states.append(best_state)
             list_best_epoch.append(best_epoch)
             if verbose:
@@ -234,15 +245,16 @@ def train(args):
 
         with open("{d}/model_params/{n}.pickle".format(d=dir_output, n=trial.number), "wb") as f_out:
             pickle.dump([list_imp, list_best_models_states], f_out)
-            
-        return cv
 
+        return cv
 
     study = optuna.create_study(direction="minimize")
     study.optimize(objective, n_trials=N_TRIALS)
 
-    pruned_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.PRUNED]
-    complete_trials = [t for t in study.trials if t.state == optuna.trial.TrialState.COMPLETE]
+    pruned_trials = [t for t in study.trials if t.state ==
+                     optuna.trial.TrialState.PRUNED]
+    complete_trials = [t for t in study.trials if t.state ==
+                       optuna.trial.TrialState.COMPLETE]
 
     print("Study statistics: ")
     print("  Number of finished trials: ", len(study.trials))
@@ -258,36 +270,37 @@ def train(args):
     print("  Params: ")
     for key, value in trial.params.items():
         print("    {}: {}".format(key, value))
-        
+
     joblib.dump(study, '{}/study.pkl'.format(dir_output))
-        
+
     with open('{}/CV_best_params.yaml'.format(dir_output), 'w') as file:
         yaml.dump(trial.params, file)
 
     with open("{d}/model_params/{n}.pickle".format(d=dir_output, n=study.best_trial.number), "rb") as fin:
         list_imp, list_best_models_states = pickle.load(fin)
 
-    model_params = [[X.shape[1], trial.params['hidden_dim'], 
-                     trial.params['dropout_rate'], trial.params['n_layers'], 
+    model_params = [[X.shape[1], trial.params['hidden_dim'],
+                     trial.params['dropout_rate'], trial.params['n_layers'],
                      trial.params['activation'], labels.shape[1]],
-                 list_best_models_states,
-               list(df.index), list(labels.columns), list_imp, df_cat]
+                    list_best_models_states,
+                    list(df.index), list(labels.columns), list_imp, df_cat]
 
     with open("{d}/best_model.pickle".format(d=dir_output), mode='wb') as f:
         pickle.dump(model_params, f)
 
     fig = optuna.visualization.plot_intermediate_values(study)
-    fig.update_yaxes(range=(0,10))
+    fig.update_yaxes(range=(0, 10))
     fig.write_image('{}/CV_int.pdf'.format(dir_output))
 
     fig = optuna.visualization.plot_parallel_coordinate(study)
     fig.write_image('{}/CV_cood.pdf'.format(dir_output))
-    
+
     fig = optuna.visualization.plot_param_importances(study)
     fig.write_image('{}/CV_importance.pdf'.format(dir_output))
-    
+
     fig = optuna.visualization.plot_optimization_history(study)
-    fig.write_image('{}/CV_history.pdf'.format(dir_output))    
+    fig.write_image('{}/CV_history.pdf'.format(dir_output))
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

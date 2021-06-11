@@ -17,8 +17,8 @@ import numpy as np
 
 class Mixup_dataset(torch.utils.data.Dataset):
 
-    def __init__(self, data, label, transform='mix', imputation=None, 
-    noise=0.01, n_choise=10, dropout=0.4):
+    def __init__(self, data, label, transform='mix', imputation=None,
+                 noise=0.01, n_choise=10, dropout=0.4):
         self.transform = transform
         self.imputation = imputation
         self.data_num = data.shape[0]
@@ -39,48 +39,48 @@ class Mixup_dataset(torch.utils.data.Dataset):
         if self.transform == 'mix':
             with np.errstate(invalid='ignore'):
                 self.p = np.matmul(np.minimum(1 / label.sum(axis=0), np.ones(label.shape[1])),
-                            label.T)
+                                   label.T)
             self.p /= self.p.sum()
         else:
             self.transform = None
-
 
     def __len__(self):
         return self.data_num
 
     def __getitem__(self, idx):
         if self.transform == 'mix':
-#             idx_rand = torch.multinomial(torch.ones(self.data.shape[0]), self.n_choise)
-#             idx_rand = torch.multinomial(torch.ones(self.data.shape[0]), np.random.randint(1, self.n_choise))
-            idx_rand = np.random.choice(range(self.data_num), 
+            #             idx_rand = torch.multinomial(torch.ones(self.data.shape[0]), self.n_choise)
+            #             idx_rand = torch.multinomial(torch.ones(self.data.shape[0]), np.random.randint(1, self.n_choise))
+            idx_rand = np.random.choice(range(self.data_num),
                                         size=np.random.randint(1, self.n_choise), p=self.p)
             out_data = self.data[idx_rand].mean(axis=0)
             out_label = self.label[idx_rand].mean(axis=0)
 
         else:
             out_data = self.data[idx]
-            out_label =  self.label[idx]
-            
+            out_label = self.label[idx]
+
         if self.noise:
             with np.errstate(invalid='ignore'):
-                out_data = np.random.beta(self.noise * out_data + 1, self.noise * (1-out_data) + 1)
-        
+                out_data = np.random.beta(
+                    self.noise * out_data + 1, self.noise * (1-out_data) + 1)
+
         if self.dropout:
-            idx_drop = np.random.choice(out_data.shape[0], size=int(out_data.shape[0]*self.dropout), 
+            idx_drop = np.random.choice(out_data.shape[0], size=int(out_data.shape[0]*self.dropout),
                                         replace=False)
             out_data[idx_drop] = np.nan
-        
+
         if self.imputation:
-            out_data = self.imputation.transform(out_data.reshape((1,out_data.shape[0]))
-                                                ).reshape(out_data.shape[0])
-            
+            out_data = self.imputation.transform(out_data.reshape((1, out_data.shape[0]))
+                                                 ).reshape(out_data.shape[0])
+
         out_data = torch.from_numpy(out_data).float()
         out_label = torch.from_numpy(out_label)
         return out_data, out_label
-    
+
 
 # https://tanelp.github.io/posts/a-bug-that-plagues-thousands-of-open-source-ml-projects/
-def worker_init_fn(worker_id):                                                          
+def worker_init_fn(worker_id):
     np.random.seed(np.random.get_state()[1][0] + worker_id)
 
 
@@ -89,48 +89,51 @@ class OneHotCrossEntropy(_WeightedLoss):
         super().__init__(weight=weight, reduction=reduction)
         self.weight = weight
         self.reduction = reduction
+
     def forward(self, inputs, targets):
         lsm = F.log_softmax(inputs, -1)
         if self.weight is not None:
             lsm = lsm * self.weight.unsqueeze(0)
         loss = -(targets * lsm).sum(-1)
-        if  self.reduction == 'sum':
+        if self.reduction == 'sum':
             loss = loss.sum()
-        elif  self.reduction == 'mean':
+        elif self.reduction == 'mean':
             loss = loss.mean()
         return loss
 
-    
+
 class SmoothCrossEntropy(nn.Module):
     # From https://www.kaggle.com/shonenkov/train-inference-gpu-baseline
-    def __init__(self, smoothing = 0.05,one_hotted=False):
+    def __init__(self, smoothing=0.05, one_hotted=False):
         super().__init__()
         self.confidence = 1.0 - smoothing
         self.smoothing = smoothing
         self.one_hotted = one_hotted
+
     def forward(self, x, target):
         if self.training:
             x = x.float()
-            if self.one_hotted!=True:
+            if self.one_hotted != True:
                 target = F.one_hot(target.long(), x.size(1))
             target = target.float()
-            logprobs = F.log_softmax(x, dim = -1)
+            logprobs = F.log_softmax(x, dim=-1)
             nll_loss = -logprobs * target
             nll_loss = nll_loss.sum(-1)
             smooth_loss = -logprobs.mean(dim=-1)
             loss = self.confidence * nll_loss + self.smoothing * smooth_loss
             return loss.mean()
         else:
-            if self.one_hotted!=True:
+            if self.one_hotted != True:
                 loss = F.cross_entropy(x, target.long())
             else:
                 loss = OneHotCrossEntropy(x, target)
             return loss
-        
+
 
 # https://github.com/Bjarten/early-stopping-pytorch modified
 class EarlyStopping:
     """Early stops the training if validation loss doesn't improve after a given patience."""
+
     def __init__(self, patience=7, verbose=False, delta=0, path='checkpoint.pt', trace_func=print):
         """
         Args:
@@ -154,6 +157,7 @@ class EarlyStopping:
         self.delta = delta
         self.path = path
         self.trace_func = trace_func
+
     def __call__(self, val_loss):
 
         score = -val_loss
@@ -163,7 +167,8 @@ class EarlyStopping:
         elif score < self.best_score + self.delta:
             self.counter += 1
             if self.verbose:
-                self.trace_func(f'EarlyStopping counter: {self.counter} out of {self.patience}')
+                self.trace_func(
+                    f'EarlyStopping counter: {self.counter} out of {self.patience}')
             if self.counter >= self.patience:
                 self.early_stop = True
         else:
@@ -187,21 +192,24 @@ def check_tile(t, ref, p_bedtools):
         print(cmd)
         subprocess.run(cmd, shell=True)
 
-        cmd = 'gzip {d}/../data/{r}.win{t}.bed'.format(r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=t)
+        cmd = 'gzip {d}/../data/{r}.win{t}.bed'.format(
+            r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=t)
         print(cmd)
         subprocess.run(cmd, shell=True)
 
 
 def parse_bismark(f, t):
     df = pd.read_csv(f, sep='\t', header=None)
-    df.columns = ['chromosome', 'start', 'end', 'methylated_frequency', 'meth', 'deme']
+    df.columns = ['chromosome', 'start', 'end',
+                  'methylated_frequency', 'meth', 'deme']
     if t == 0:
         df['CpGs'] = df['chromosome'] + ':' + (df['start']).astype(str)
     else:
-        df['CpGs'] = df['chromosome'] + ':' + (df['start']).astype(str) + '-' + (df['end']).astype(str)
-    
+        df['CpGs'] = df['chromosome'] + ':' + \
+            (df['start']).astype(str) + '-' + (df['end']).astype(str)
+
     if df['methylated_frequency'].max() > 1:
-        df['methylated_frequency'] /= 100   
+        df['methylated_frequency'] /= 100
     # df = df[df[['meth', 'deme']].sum(axis=1) > th_cov]
     # df['methylated_frequency'] = (df['meth'] + 1) / (df['meth'] + df['deme'] + 2)
     df = df[['CpGs', 'methylated_frequency']]
@@ -217,13 +225,14 @@ def tile_bismark(f_bismark, tile_bp, p_bedtools):
     os.makedirs('tmp_menet', exist_ok=True)
     check_tile(tile_bp, ref, p_bedtools)
 
-    cmd = '{b} sort -i {f} > {f_sort}'.format(b=p_bedtools, f=f_bismark, f_sort='tmp_menet/tmp.sort.txt')
+    cmd = '{b} sort -i {f} > {f_sort}'.format(
+        b=p_bedtools, f=f_bismark, f_sort='tmp_menet/tmp.sort.txt')
     print(cmd)
     subprocess.run(cmd, shell=True)
 
     cmd = '{b} map -a {d}/../data/{r}.win{x}.bed.gz -b {bis} -c 4,5,6 -o mean,sum,sum | grep -v "\.\s*\." > {o}'.format(
-        b = p_bedtools, d=os.path.dirname(os.path.abspath(__file__)),
-        x = tile_bp, bis='tmp_menet/tmp.sort.txt', o='tmp_menet/tmp.tile.txt', r=ref)
+        b=p_bedtools, d=os.path.dirname(os.path.abspath(__file__)),
+        x=tile_bp, bis='tmp_menet/tmp.sort.txt', o='tmp_menet/tmp.tile.txt', r=ref)
     print(cmd)
     subprocess.run(cmd, shell=True)
     f = 'tmp_menet/tmp.tile.txt'
@@ -234,7 +243,7 @@ def tile_bismark(f_bismark, tile_bp, p_bedtools):
     df = df[[n]]
 
     shutil.rmtree('tmp_menet')
-    
+
     return df
 
 
@@ -250,7 +259,7 @@ def tile_array(f_input, input_filetype, tile_bp):
         print('The index file; ProbeID - tiling windows is not prepared for the tile(bp).')
 
     if input_filetype == 'tsv':
-        df_array = pd.read_csv(f_input, comment="!", sep='\t', index_col = 0)
+        df_array = pd.read_csv(f_input, comment="!", sep='\t', index_col=0)
     else:
         df_array = pd.read_csv(f_input, index_col=0)
 
@@ -260,5 +269,5 @@ def tile_array(f_input, input_filetype, tile_bp):
     df_array = pd.merge(df_array, df_probeid_name, how='left', on='probeID')
     df_array = df_array.groupby(by='name').mean()
     df_array = df_array[col_samples]
-    
+
     return df_array
