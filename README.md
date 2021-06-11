@@ -32,6 +32,45 @@ optional arguments:
   --device DEVICE       device for pytorch. (ex. cpu, cuda)
 ```
 
+### training (advanced usage)
+
+Before training, users need to create the reference matrix, categories, and input yaml. Details are on the directory `create_ref`.
+
+```
+usage: MEnet train [-h] [--device DEVICE] input_yaml
+
+positional arguments:
+  input_yaml       input yaml file.
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --device DEVICE  device for pytorch. (ex. cpu, cuda)
+```
+
+input_yaml (example)
+
+```
+reference: test/train/ref_MinorGroup_1000bp_500regions_0.5diff.210228.csv
+integrated: test/train/210228_integrated_1000bp.csv.gz
+pickle: test/train/210228_df.pickle
+ref_table: test/train/210228_ref_ordered.csv
+category: test/train/210228_categories.csv
+output_dir: test/train/210228_optuna_CV
+n_splits: 5
+fill: mean
+n_epochs: 200000
+patience: 500
+n_trials: 10
+seed: 0
+batch_size: 20
+```
+
+example 
+
+```
+MEnet train test/train/210228_optuna_CV.yaml 
+```
+
 ## For development
 
 ```
