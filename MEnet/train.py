@@ -67,6 +67,7 @@ def train(args):
     else:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+    print('device : ', device)
     df_cat = pd.read_csv(f_category)
 
     df_ref = pd.read_csv(f_ref)
@@ -106,8 +107,8 @@ def train(args):
 
     labels = pd.get_dummies(df_ref_assigned.MinorGroup)[df_cat.MinorGroup]
 
-    if df.shape[0] != df_ref_assigned.shape[0]:
-        raise ValueError('The input file is incompatible form. Try to delete the picke file.')
+    # if df.shape[0] != df_ref_assigned.shape[0]:
+    #     raise ValueError('The input file is incompatible form. Try to delete the picke file.')
     
     # https://scikit-learn.org/stable/modules/cross_validation.html
     # ss = ShuffleSplit(n_splits=n_splits, test_size=1/n_splits, random_state=seed)
