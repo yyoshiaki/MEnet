@@ -198,5 +198,3 @@ convert_blueprint_biscov.py
 ```
 python convert_PRJNA343855.py
 ````
-
-

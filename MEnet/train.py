@@ -72,8 +72,15 @@ def train(args):
     df_ref = pd.read_csv(f_ref)
     # df_ref.head()
 
-    df_ref_unassigned = df_ref[df_ref.MinorGroup.isna()]
-    df_ref_assigned = df_ref[~df_ref.MinorGroup.isna()]
+    df_ref_assigned = df_ref[df_ref.MinorGroup.isin(list(df_cat['MinorGroup']))]
+    
+    if df_ref_assigned.MinorGroup.value_counts()[
+        df_ref_assigned.MinorGroup.value_counts() >= 2].shape[0] > 0:
+        print('dropped labels (<2 samples) : ', df_ref_assigned.MinorGroup.value_counts()[
+        df_ref_assigned.MinorGroup.value_counts() < 2].index)
+    labels = df_ref_assigned.MinorGroup.value_counts()[df_ref_assigned.MinorGroup.value_counts() >= 2].index
+    df_ref_assigned = df_ref_assigned[df_ref_assigned.MinorGroup.isin(labels)]
+    df_cat = df_cat[df_cat['MinorGroup'].isin(labels)]
 
     try:
         df = pd.read_pickle(f_pickle)
@@ -97,9 +104,11 @@ def train(args):
         df.columns = df_ref_assigned.FileID
         df.to_pickle(f_pickle)
 
-    labels = pd.get_dummies(df_ref_assigned.MinorGroup)
-            
+    labels = pd.get_dummies(df_ref_assigned.MinorGroup)[df_cat.MinorGroup]
 
+    if df.shape[0] != df_ref_assigned.shape[0]:
+        raise ValueError('The input file is incompatible form. Try to delete the picke file.')
+    
     # https://scikit-learn.org/stable/modules/cross_validation.html
     # ss = ShuffleSplit(n_splits=n_splits, test_size=1/n_splits, random_state=seed)
     ss = StratifiedShuffleSplit(n_splits=n_splits, test_size=1/n_splits, random_state=seed)
