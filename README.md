@@ -7,7 +7,7 @@ MEnet is a neural-net based deconvolution method for methylation data. MEnet can
 1. Install pytorch. [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)
 2. git clone this repo.
 3. `python setup.py install`
-4. If you use the `--bismark` option, you need to install `bedtools` locally.
+4. If you use the `--input_type bismark` option, you need to install `bedtools` locally.
 
 ## Usage
 
