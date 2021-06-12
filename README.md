@@ -9,14 +9,12 @@ MEnet is a neural-net based deconvolution method for methylation data. MEnet can
 3. `python setup.py install`
 4. If you use the `--input_type bismark` option, you need to install `bedtools` locally.
 
-## Usage
-
-### Prediction
+## Prediction
 
 ```
 usage: MEnet predict [-h] -i input -m model
                      [--input_type {auto,bismark,table,array}] [-o output_dir]
-                     [--bedtools BEDTOOLS] [--device DEVICE]
+                     [--bedtools BEDTOOLS]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -29,10 +27,38 @@ optional arguments:
   -o output_dir, --output_dir output_dir
                         output directory
   --bedtools BEDTOOLS   Full path to bedtools.
-  --device DEVICE       device for pytorch. (ex. cpu, cuda)
 ```
 
-### Training (advanced usage)
+example
+
+```
+MEnet predict --input Minion_STR1_Fr6.bis.cov.gz --model ../train/210228_optuna_CV/best_model.pickle --input_type bismark  -o Minion_STR1_Fr6
+```
+
+## Output
+
+`cell_proportion_MajorGroup.csv` and `cell_proportion_MinorGroup.csv` are infered cell proportions for Major categories and Minor categories.
+
+```
+Tissue,Minion_STR1_Fr6
+Adipocytes,0.00017756927380603907
+AdrenalGland,1.738096416975436e-05
+Neuron,0.0006150502083486212
+Skin,0.00013093999620681127
+Muscle,1.2423588317326314e-05
+Cardiovascular,9.538600816076434e-05
+...
+```
+
+### heatmap
+
+### barplot
+
+### log
+
+`MEnet.*.log` contains MEnet version and execution date.
+
+## Training an original model(advanced usage)
 
 Users can define and train models. Before training, users need to create the reference matrix, categories, and input yaml. Details are on the directory `create_ref`.
 
@@ -71,7 +97,7 @@ example
 MEnet train test/train/210228_optuna_CV.yaml 
 ```
 
-## For development
+## For developers
 
 ```
 conda env create --file conda_env.yaml
