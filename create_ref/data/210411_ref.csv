@@ -1,0 +1,707 @@
+FileID,Biosample term name,Tissue,MinorGroup,Project,Directory,Assay
+ENCFF164EAU,spinal cord,Nerve,Nerve,Roadmap,ENCODE,WGBS
+ENCFF774GXJ,skeletal muscle myoblast,Muscle,Muscle,ENCODE,ENCODE,WGBS
+ENCFF837SXM,skeletal muscle myoblast,Muscle,Muscle,ENCODE,ENCODE,WGBS
+ENCFF200MJQ,spleen,,,Roadmap,ENCODE,WGBS
+ENCFF216DJL,adrenal gland,AdrenalGland,AdrenalGland,Roadmap,ENCODE,WGBS
+ENCFF451WIY,CD14-positive monocyte,Monocytes,Monocytes,Roadmap,ENCODE,WGBS
+ENCFF437OKM,placenta,,,Roadmap,ENCODE,WGBS
+ENCFF913UZU,psoas muscle,Muscle,Muscle,Roadmap,ENCODE,WGBS
+ENCFF241AQC,small intestine,SmallIntestine,SmallIntestine,Roadmap,ENCODE,WGBS
+ENCFF730NQT,spleen,,,Roadmap,ENCODE,WGBS
+ENCFF122LEF,small intestine,SmallIntestine,SmallIntestine,Roadmap,ENCODE,WGBS
+ENCFF103DNU,adipose tissue,Adipocytes,Adipocytes,Roadmap,ENCODE,WGBS
+ENCFF247ILV,ovary,Ovary,Ovary,Roadmap,ENCODE,WGBS
+ENCFF110AZO,right cardiac atrium,Cardiovascular,Cardiovascular,Roadmap,ENCODE,WGBS
+ENCFF826PSA,adrenal gland,AdrenalGland,AdrenalGland,Roadmap,ENCODE,WGBS
+ENCFF774VLD,B cell,B-cells,,Roadmap,ENCODE,WGBS
+ENCFF645AZF,muscle of trunk,Muscle,Muscle,Roadmap,ENCODE,WGBS
+ENCFF168HTX,thymus,,,Roadmap,ENCODE,WGBS
+ENCFF266NGW,small intestine,SmallIntestine,SmallIntestine,Roadmap,ENCODE,WGBS
+ENCFF157POM,sigmoid colon,Colon,Colon,Roadmap,ENCODE,WGBS
+ENCFF923CZC,large intestine,Colon,Colon,Roadmap,ENCODE,WGBS
+ENCFF715DMX,testis,Testis,Testis,ENCODE,ENCODE,WGBS
+ENCFF510EMT,esophagus,Esophangus,Esophangus,Roadmap,ENCODE,WGBS
+ENCFF219GCQ,lower leg skin,Skin,Skin,ENCODE,ENCODE,WGBS
+ENCFF121VIX,lower leg skin,Skin,Skin,ENCODE,ENCODE,WGBS
+ENCFF318AMC,adipose tissue,Adipocytes,Adipocytes,Roadmap,ENCODE,WGBS
+ENCFF521DHD,small intestine,SmallIntestine,SmallIntestine,Roadmap,ENCODE,WGBS
+ENCFF076CIO,esophagus squamous epithelium,Esophangus,Esophangus,ENCODE,ENCODE,WGBS
+ENCFF625GVK,esophagus,Esophangus,Esophangus,Roadmap,ENCODE,WGBS
+ENCFF435ETE,natural killer cell,NK-cells,NK-cells,Roadmap,ENCODE,WGBS
+ENCFF831OYO,heart right ventricle,Cardiovascular,Cardiovascular,Roadmap,ENCODE,WGBS
+ENCFF534RNT,stomach,Stomach,Stomach,Roadmap,ENCODE,WGBS
+ENCFF684JHX,heart left ventricle,Cardiovascular,Cardiovascular,Roadmap,ENCODE,WGBS
+ENCFF763RUE,pancreas,Pancreas,Pancreas,Roadmap,ENCODE,WGBS
+ENCFF526PFA,spleen,,,Roadmap,ENCODE,WGBS
+ENCFF497YOO,stomach,Stomach,Stomach,Roadmap,ENCODE,WGBS
+ENCFF392XPZ,thymus,,,Roadmap,ENCODE,WGBS
+ENCFF355UVU,T-cell,,,Roadmap,ENCODE,WGBS
+ENCFF500DKA,pancreas,Pancreas,Pancreas,Roadmap,ENCODE,WGBS
+ENCFF536RSX,heart left ventricle,Cardiovascular,Cardiovascular,Roadmap,ENCODE,WGBS
+ENCFF513ITC,heart right ventricle,Cardiovascular,Cardiovascular,Roadmap,ENCODE,WGBS
+ENCFF189WPY,ovary,Ovary,Ovary,ENCODE,ENCODE,WGBS
+ENCFF210XTE,adrenal gland,AdrenalGland,AdrenalGland,Roadmap,ENCODE,WGBS
+ENCFF435SPL,stomach,Stomach,Stomach,Roadmap,ENCODE,WGBS
+ENCFF121ZES,psoas muscle,Muscle,Muscle,Roadmap,ENCODE,WGBS
+ENCFF588ETU,muscle of leg,Muscle,Muscle,Roadmap,ENCODE,WGBS
+ENCFF553HJV,aorta,Cardiovascular,Cardiovascular,Roadmap,ENCODE,WGBS
+ENCFF455TQO,sigmoid colon,Colon,Colon,Roadmap,ENCODE,WGBS
+ENCFF489CEV,stomach,Stomach,Stomach,Roadmap,ENCODE,WGBS
+ENCFF560SMW,heart,Cardiovascular,Cardiovascular,Roadmap,ENCODE,WGBS
+ENCFF477GKI,adipose tissue,Adipocytes,Adipocytes,Roadmap,ENCODE,WGBS
+ENCFF223LJW,thyroid gland,Thyroid,Thyroid,ENCODE,ENCODE,WGBS
+ENCFF618WAT,adrenal gland,AdrenalGland,AdrenalGland,ENCODE,ENCODE,WGBS
+ENCFF699RBP,body of pancreas,Pancreas,Pancreas,ENCODE,ENCODE,WGBS
+ENCFF733EFJ,upper lobe of left lung,Lung,Lung,ENCODE,ENCODE,WGBS
+ENCFF477AUC,lung,Lung,Lung,Roadmap,ENCODE,WGBS
+ENCFF039JFT,lung,Lung,Lung,Roadmap,ENCODE,WGBS
+ENCFF424XKF,transverse colon,Colon,Colon,ENCODE,ENCODE,WGBS
+ENCFF303ZGP,ovary,Ovary,Ovary,ENCODE,ENCODE,WGBS
+ENCFF913ZNZ,adrenal gland,AdrenalGland,AdrenalGland,ENCODE,ENCODE,WGBS
+ENCFF333OHK,spleen,,,ENCODE,ENCODE,WGBS
+ENCFF692JTJ,"common myeloid progenitor, CD34-positive",,,Roadmap,ENCODE,WGBS
+ENCFF577VGR,right lobe of liver,Liver,Liver,ENCODE,ENCODE,WGBS
+ENCFF550FZT,spleen,,,ENCODE,ENCODE,WGBS
+ENCFF027KTR,prostate gland,Prostate,Prostate,ENCODE,ENCODE,WGBS
+ENCFF748MTS,body of pancreas,Pancreas,Pancreas,ENCODE,ENCODE,WGBS
+ENCFF844EFX,stomach,Stomach,Stomach,ENCODE,ENCODE,WGBS
+ENCFF952NTB,esophagus squamous epithelium,Esophangus,Esophangus,ENCODE,ENCODE,WGBS
+ENCFF577TCU,gastroesophageal sphincter,Esophangus,Esophangus,ENCODE,ENCODE,WGBS
+ENCFF237MNK,gastroesophageal sphincter,Esophangus,Esophangus,ENCODE,ENCODE,WGBS
+ENCFF843SYR,tibial nerve,Nerve,Nerve,ENCODE,ENCODE,WGBS
+ENCFF842MHJ,upper lobe of left lung,Lung,Lung,ENCODE,ENCODE,WGBS
+ENCFF497IYX,thyroid gland,Thyroid,Thyroid,ENCODE,ENCODE,WGBS
+ENCFF699GKH,mammary epithelial cell,Breast,Breast,ENCODE,ENCODE,WGBS
+ENCFF874GGB,mammary epithelial cell,Breast,Breast,ENCODE,ENCODE,WGBS
+ENCFF638QVP,testis,Testis,Testis,ENCODE,ENCODE,WGBS
+ENCFF811QOG,stomach,Stomach,Stomach,ENCODE,ENCODE,WGBS
+ENCFF699KTW,tibial nerve,Nerve,Nerve,ENCODE,ENCODE,WGBS
+ENCFF008YRN,bladder,Bladder,Bladder,Roadmap,ENCODE,WGBS
+SRR5343825,nucleus accumbens (NAcc),Nerve,Nerve,PRJNA379177,PRJNA379177,WGBS
+SRR5343826,prefrontal cortex (BA9),Nerve,Nerve,PRJNA379177,PRJNA379177,WGBS
+SRR5343827,nucleus accumbens (NAcc),Nerve,Nerve,PRJNA379177,PRJNA379177,WGBS
+SRR5343828,prefrontal cortex (BA9),Nerve,Nerve,PRJNA379177,PRJNA379177,WGBS
+SRR5343829,hippocampus (HC),Nerve,Nerve,PRJNA379177,PRJNA379177,WGBS
+S00JGXA1,band form neutrophil,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00JFZA1,neutrophilic metamyelocyte,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00JE0A1,neutrophilic myelocyte,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00JHVA1,segmented neutrophil of bone marrow,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00VEQA1,band form neutrophil,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00VDSA1,neutrophilic metamyelocyte,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00VCUA1,neutrophilic myelocyte,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00VFOA1,segmented neutrophil of bone marrow,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00JMLA1,band form neutrophil,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00JKPA1,neutrophilic metamyelocyte,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00JJRA1,neutrophilic myelocyte,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00JNJA1,segmented neutrophil of bone marrow,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+G199,hematopoietic multipotent progenitor cell,,,BLUEPRINT,Blueprint,WGBS
+HPC-V151,hematopoietic multipotent progenitor cell,,,BLUEPRINT,Blueprint,WGBS
+PreB2C-V152,precursor B cell,B-cells,preGCB-cells,BLUEPRINT,Blueprint,WGBS
+G200,precursor lymphocyte of B lineage,B-cells,preGCB-cells,BLUEPRINT,Blueprint,WGBS
+G202,plasma cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+bmPCs-V156,plasma cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+G201,germinal center B cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+PC_T12_20,plasma cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+PC_T13_1,plasma cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+GC_T14_10,germinal center B cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+PC_T14_10,plasma cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+GC_T14_11,germinal center B cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+C000S5A1bs,"CD14-positive, CD16-negative classical monocyte",Monocytes,Monocytes,BLUEPRINT,Blueprint,WGBS
+C000S5A2bs,mature neutrophil,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+C0010KA2bs,"CD14-positive, CD16-negative classical monocyte",Monocytes,Monocytes,BLUEPRINT,Blueprint,WGBS
+C0010KA1bs,mature neutrophil,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+C0011IA3bs,mature neutrophil,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+C001UYA3bs,"CD14-positive, CD16-negative classical monocyte",Monocytes,Monocytes,BLUEPRINT,Blueprint,WGBS
+C001UYA1bs,mature neutrophil,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+C00256A1bs,"CD8-positive, alpha-beta T cell",CD8+T-cells,,BLUEPRINT,Blueprint,WGBS
+C00256A3bs,"effector memory CD8-positive, alpha-beta T cell",CD8+T-cells,effector CTL,BLUEPRINT,Blueprint,WGBS
+C002CTA1bs,cytotoxic CD56-dim natural killer cell,NK-cells,NK-cells,BLUEPRINT,Blueprint,WGBS
+C003JB51,class switched memory B cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+C003N351,memory B cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+C003VO55,"CD8-positive, alpha-beta T cell",CD8+T-cells,,BLUEPRINT,Blueprint,WGBS
+C003VO56,"central memory CD8-positive, alpha-beta T cell",CD8+T-cells,memory CTL,BLUEPRINT,Blueprint,WGBS
+C004SQ51,"CD14-positive, CD16-negative classical monocyte",Monocytes,Monocytes,BLUEPRINT,Blueprint,WGBS
+C005UI52,"central memory CD8-positive, alpha-beta T cell",CD8+T-cells,memory CTL,BLUEPRINT,Blueprint,WGBS
+C005VG51,macrophage,Monocytes,Monocytes,BLUEPRINT,Blueprint,WGBS
+C006G551,cytotoxic CD56-dim natural killer cell,NK-cells,NK-cells,BLUEPRINT,Blueprint,WGBS
+W653,memory B cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+csMBC_NC11_41,class switched memory B cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+NBC_NC11_41,naive B cell,B-cells,preGCB-cells,BLUEPRINT,Blueprint,WGBS
+NBC_NC11_83,naive B cell,B-cells,preGCB-cells,BLUEPRINT,Blueprint,WGBS
+S01ECGA1,naive B cell,B-cells,preGCB-cells,BLUEPRINT,Blueprint,WGBS
+S00K5EA1,mature neutrophil,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00FWHA1,mature neutrophil,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S00K7AA1,mature neutrophil,Neutrophils,Neutrophils,BLUEPRINT,Blueprint,WGBS
+S01E03A1,monocyte,Monocytes,Monocytes,BLUEPRINT,Blueprint,WGBS
+S01MAPA1,monocyte,Monocytes,Monocytes,BLUEPRINT,Blueprint,WGBS
+S001JP51,CD38-negative naive B cell,B-cells,preGCB-cells,BLUEPRINT,Blueprint,WGBS
+S001MJ51,inflammatory macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S001S753,inflammatory macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S001S751,macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S0022I53,inflammatory macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S0022I51,macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S002ND51,"effector memory CD8-positive, alpha-beta T cell, terminally differentiated",CD8+T-cells,effector CTL,BLUEPRINT,Blueprint,WGBS
+S0039051,macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S004P151,class switched memory B cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+S0062252,alternatively activated macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S006VI53,alternatively activated macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S006XE53,mature eosinophil,Eosinophils,Eosinophils,BLUEPRINT,Blueprint,WGBS
+S00BS451,alternatively activated macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S00DM851,CD38-negative naive B cell,B-cells,preGCB-cells,BLUEPRINT,Blueprint,WGBS
+S00FTN51,alternatively activated macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S00H6O51,inflammatory macrophage,Monocytes,Macrophage,BLUEPRINT,Blueprint,WGBS
+S00UJK51,adult endothelial progenitor cell,Endothelial-cells,Endothelial-cells,BLUEPRINT,Blueprint,WGBS
+S00V6553,mature eosinophil,Eosinophils,Eosinophils,BLUEPRINT,Blueprint,WGBS
+S00W8Y51,mesenchymal stem cell of the bone marrow,,,BLUEPRINT,Blueprint,WGBS
+S00YAM51,mesenchymal stem cell of the bone marrow,,,BLUEPRINT,Blueprint,WGBS
+S014WG51,"effector memory CD8-positive, alpha-beta T cell",CD8+T-cells,memory CTL,BLUEPRINT,Blueprint,WGBS
+S0164R51,"effector memory CD8-positive, alpha-beta T cell, terminally differentiated",CD8+T-cells,memory CTL,BLUEPRINT,Blueprint,WGBS
+S017RE51,memory B cell,B-cells,matureB-cells,BLUEPRINT,Blueprint,WGBS
+S01GU951,adult endothelial progenitor cell,Endothelial-cells,Endothelial-cells,BLUEPRINT,Blueprint,WGBS
+S00BJM51,endothelial cell of umbilical vein (proliferating),Endothelial-cells,Endothelial-cells,BLUEPRINT,Blueprint,WGBS
+S00BJM52,endothelial cell of umbilical vein (resting),Endothelial-cells,Endothelial-cells,BLUEPRINT,Blueprint,WGBS
+S00DCS51,endothelial cell of umbilical vein (proliferating),Endothelial-cells,Endothelial-cells,BLUEPRINT,Blueprint,WGBS
+S00DCS53,endothelial cell of umbilical vein (resting),Endothelial-cells,Endothelial-cells,BLUEPRINT,Blueprint,WGBS
+GSM2324722_MEP_1000_D2,MEP,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324733_MEP_1000_D1,MEP,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324743_MEP_1000_D3,MEP,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324720_MEP_50_D2_1,MEP,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324721_MEP_50_D2_2,MEP,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324731_MEP_50_D1_1,MEP,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324732_MEP_50_D1_2,MEP,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324741_MEP_50_D3_1,MEP,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324742_MEP_50_D3_2,MEP,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324767_MK_5_D1_16N_1,Megakaryocyte,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324768_MK_5_D1_16N_2,Megakaryocyte,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324769_MK_5_D1_2N_1,Megakaryocyte,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324770_MK_5_D1_2N_2,Megakaryocyte,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324771_MK_5_D1_32N_1,Megakaryocyte,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324772_MK_5_D1_4N_1,Megakaryocyte,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324773_MK_5_D1_4N_2,Megakaryocyte,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324774_MK_5_D1_8N_1,Megakaryocyte,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324775_MK_5_D1_8N_2,Megakaryocyte,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324776_MK_5_D1_32N_2,Megakaryocyte,Meg-Ery,Meg-Ery,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2325070_Neut_1000_D2,Neutrophils,Neutrophils,Neutrophils,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2325071_Neut_1000_D3,Neutrophils,Neutrophils,Neutrophils,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2325072_Neut_1000_D1,Neutrophils,Neutrophils,Neutrophils,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2325064_Mono_1000_D2,Monocytes,Monocytes,Monocytes,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2325065_Mono_1000_D3,Monocytes,Monocytes,Monocytes,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2325066_Mono_1000_D1,Monocytes,Monocytes,Monocytes,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2325067_NK_1000_D2,NK-cells,NK-cells,NK-cells,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2325068_NK_1000_D3,NK-cells,NK-cells,NK-cells,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2325069_NK_1000_D1,NK-cells,NK-cells,NK-cells,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324440_CD8_1000_D2,"CD8-positive, alpha-beta T cell",CD8+T-cells,,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324441_CD8_1000_D3,"CD8-positive, alpha-beta T cell",CD8+T-cells,,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+GSM2324442_CD8_1000_D1,"CD8-positive, alpha-beta T cell",CD8+T-cells,,BLUEPRINT,PRJNA343855_Blueprint_HSC,WGBS
+Fr1_CpG_STR1,naive Treg,CD4+T-cells,naive Treg,JGAS00000000145,PBAT/160301_hPBAT_STR1_Fr12356_Hq2K_hg38map,WGBS
+Fr2_CpG_STR1,activated Treg,CD4+T-cells,activated Treg,JGAS00000000145,PBAT/160301_hPBAT_STR1_Fr12356_Hq2K_hg38map,WGBS
+Fr5_CpG_STR1,memory Tconv,CD4+T-cells,memory Tconv,JGAS00000000145,PBAT/160301_hPBAT_STR1_Fr12356_Hq2K_hg38map,WGBS
+Fr6_CpG_STR1,naive Tconv,CD4+T-cells,naive Tconv,JGAS00000000145,PBAT/160301_hPBAT_STR1_Fr12356_Hq2K_hg38map,WGBS
+BDR1_Fr1_CpG,naive Treg,CD4+T-cells,naive Treg,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+BDR1_Fr2_CpG,activated Treg,CD4+T-cells,activated Treg,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+BDR1_Fr5_CpG,memory Tconv,CD4+T-cells,memory Tconv,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+BDR1_Fr6_CpG,naive Tconv,CD4+T-cells,naive Tconv,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR1_Fr1_CpG,naive Treg,CD4+T-cells,naive Treg,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR1_Fr2_CpG,activated Treg,CD4+T-cells,activated Treg,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR1_Fr5_CpG,memory Tconv,CD4+T-cells,memory Tconv,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR1_Fr6_CpG,naive Tconv,CD4+T-cells,naive Tconv,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR5_Fr1_CpG,naive Treg,CD4+T-cells,naive Treg,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR5_Fr2_CpG,activated Treg,CD4+T-cells,activated Treg,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR5_Fr5_CpG,memory Tconv,CD4+T-cells,memory Tconv,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR5_Fr6_CpG,naive Tconv,CD4+T-cells,naive Tconv,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR6_Fr1_CpG,naive Treg,CD4+T-cells,naive Treg,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR6_Fr2_CpG,activated Treg,CD4+T-cells,activated Treg,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR6_Fr5_CpG,memory Tconv,CD4+T-cells,memory Tconv,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+STR6_Fr6_CpG,naive Tconv,CD4+T-cells,naive Tconv,JGAS00000000145,PBAT/191103_hPBAT_Fr1-6_STR1.5.6.BDR1_Nova_mergeAll,WGBS
+01_T172_effCD8,effector CTL,CD8+T-cells,effector CTL,original,PBAT/201225_hPBAT_tumorTreg_T172.T176_PG4143_nova,WGBS
+02_T172_exCD8,exausted CTL,CD8+T-cells,exausted CTL,original,PBAT/201225_hPBAT_tumorTreg_T172.T176_PG4143_nova,WGBS
+03_T172_effTreg,activated Treg,CD4+T-cells,activated Treg,original,PBAT/201225_hPBAT_tumorTreg_T172.T176_PG4143_nova,WGBS
+04_T176_effCD8,effector CTL,CD8+T-cells,effector CTL,original,PBAT/201225_hPBAT_tumorTreg_T172.T176_PG4143_nova,WGBS
+05_T176_exCD8,exausted CTL,CD8+T-cells,exausted CTL,original,PBAT/201225_hPBAT_tumorTreg_T172.T176_PG4143_nova,WGBS
+06_T176_effTreg,activated Treg,CD4+T-cells,activated Treg,original,PBAT/201225_hPBAT_tumorTreg_T172.T176_PG4143_nova,WGBS
+07_T176_naive_Treg,naive Treg,CD4+T-cells,naive Treg,original,PBAT/201225_hPBAT_tumorTreg_T172.T176_PG4143_nova,WGBS
+01_T178_effCD8,effector CTL,CD8+T-cells,effector CTL,original,PBAT/201224_hPBAT_tumorTreg_T178_PG4188_nova,WGBS
+02_T178_exCD8,exausted CTL,CD8+T-cells,exausted CTL,original,PBAT/201224_hPBAT_tumorTreg_T178_PG4188_nova,WGBS
+03_T178_effTreg,activated Treg,CD4+T-cells,activated Treg,original,PBAT/201224_hPBAT_tumorTreg_T178_PG4188_nova,WGBS
+HPC17,Hepatitis B virus-positive human hepatocytes purified from partial hepatectomy speimens,Liver,Liver,AMED-CREST,AMED-CREST,WGBS
+HPC20,Normal human hepatocytes purified from partial hepatectomy speimens,Liver,Liver,AMED-CREST,AMED-CREST,WGBS
+HPC25,Normal human hepatocytes purified from partial hepatectomy speimens,Liver,Liver,AMED-CREST,AMED-CREST,WGBS
+HPC27,Normal human hepatocytes purified from partial hepatectomy speimens,Liver,Liver,AMED-CREST,AMED-CREST,WGBS
+HPC28,Normal human hepatocytes purified from partial hepatectomy speimens,Liver,Liver,AMED-CREST,AMED-CREST,WGBS
+HPC35,Normal human hepatocytes purified from partial hepatectomy speimens,Liver,Liver,AMED-CREST,AMED-CREST,WGBS
+HPC6,Normal human hepatocytes purified from partial hepatectomy speimens,Liver,Liver,AMED-CREST,AMED-CREST,WGBS
+ENCFF000MKB,foreskin fibroblast,Fibroblast,Fibroblast,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000MKC,foreskin fibroblast,Fibroblast,Fibroblast,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LVU,pancreas,Pancreas,Pancreas,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LVW,pancreas,Pancreas,Pancreas,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LUT,breast,Breast,Breast,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LUV,breast,Breast,Breast,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWS,stomach,Stomach,Stomach,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWW,stomach,Stomach,Stomach,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWH,skeletal muscle tissue,Muscle,Muscle,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWK,skeletal muscle tissue,Muscle,Muscle,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWO,zone of skin,Skin,Skin,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWP,zone of skin,Skin,Skin,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LVE,heart left ventricle,Cardiovascular,Cardiovascular,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LVF,heart left ventricle,Cardiovascular,Cardiovascular,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWD,skeletal muscle tissue,Muscle,Muscle,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWL,skeletal muscle tissue,Muscle,Muscle,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LUQ,brain,Nerve,Nerve,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LUU,brain,Nerve,Nerve,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000MBY,hepatocyte,Liver,Liver,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000MCD,hepatocyte,Liver,Liver,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LVO,lung,Lung,Lung,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LVR,lung,Lung,Lung,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000MAF,cardiac fibroblast,Fibroblast,Fibroblast,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000MAK,cardiac fibroblast,Fibroblast,Fibroblast,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LVA,kidney,Kidney,Kidney,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LVB,kidney,Kidney,Kidney,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWT,testis,Testis,Testis,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWY,testis,Testis,Testis,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LWX,uterus,,,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LXB,uterus,,,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000MAQ,cardiac muscle cell,Cardiovascular,Cardiovascular,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000MAR,cardiac muscle cell,Cardiovascular,Cardiovascular,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LVJ,liver,Liver,Liver,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LVN,liver,Liver,Liver,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LUN,adrenal gland,AdrenalGland,AdrenalGland,ENCODE,ENCODE_RRBS,RRBS
+ENCFF000LUP,adrenal gland,AdrenalGland,AdrenalGland,ENCODE,ENCODE_RRBS,RRBS
+SRR6156035,prostate gland,Prostate,Prostate,PRJNA413840,PRJNA413840,WGBS
+SRR6156036,prostate gland,Prostate,Prostate,PRJNA413840,PRJNA413840,WGBS
+SRR6156037,prostate gland,Prostate,Prostate,PRJNA413840,PRJNA413840,WGBS
+ERR361748,breast,Breast,Breast,E-MTAB-2014,E-MTAB-2014,WGBS
+ERR361752,breast,Breast,Breast,E-MTAB-2014,E-MTAB-2014,WGBS
+SRR1042903,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042904,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042905,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042906,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042907,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042908,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042909,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042910,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042911,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042912,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042913,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR1042914,skin,Skin,Skin,PRJNA230619,PRJNA230619,WGBS
+SRR11007278,Health Donor Naive CTL,CD8+T-cells,naive CTL,PRJNA604599,PRJNA604599,WGBS
+SRR11007279,Health Donor Naive CTL,CD8+T-cells,naive CTL,PRJNA604599,PRJNA604599,WGBS
+SRR11007280,Health Donor Naive CTL,CD8+T-cells,naive CTL,PRJNA604599,PRJNA604599,WGBS
+SRR11007281,Health Donor Naive CTL,CD8+T-cells,naive CTL,PRJNA604599,PRJNA604599,WGBS
+SRR11007291,Healthy Donor TSCM (CTL),CD8+T-cells,,PRJNA604599,PRJNA604599,WGBS
+SRR11007292,Healthy Donor TSCM (CTL),CD8+T-cells,,PRJNA604599,PRJNA604599,WGBS
+SRR11007293,Healthy Donor TSCM (CTL),CD8+T-cells,,PRJNA604599,PRJNA604599,WGBS
+SRR11007294,Healthy Donor TCM (CTL),CD8+T-cells,memory CTL,PRJNA604599,PRJNA604599,WGBS
+SRR11007295,Healthy Donor TCM (CTL),CD8+T-cells,memory CTL,PRJNA604599,PRJNA604599,WGBS
+SRR11007296,Healthy Donor TCM (CTL),CD8+T-cells,memory CTL,PRJNA604599,PRJNA604599,WGBS
+SRR11007297,Healthy Donor TEM (CTL),CD8+T-cells,memory CTL,PRJNA604599,PRJNA604599,WGBS
+SRR11007298,Healthy Donor TEM (CTL),CD8+T-cells,memory CTL,PRJNA604599,PRJNA604599,WGBS
+SRR11007299,Healthy Donor TEM (CTL),CD8+T-cells,memory CTL,PRJNA604599,PRJNA604599,WGBS
+SRR11671437,esophagus,Esophangus,Esophangus,PRJNA630082,PRJNA630082,WGBS
+SRR11671438,esophagus,Esophangus,Esophangus,PRJNA630082,PRJNA630082,WGBS
+SRR11671439,esophagus,Esophangus,Esophangus,PRJNA630082,PRJNA630082,WGBS
+SRR6490024,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490025,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490028,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490029,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490030,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490031,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490032,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490034,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490035,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490036,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490038,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490046,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490051,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490054,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490057,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490058,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490059,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490070,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490076,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490077,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490078,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490083,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490084,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR6490087,lung,Lung,Lung,PRJNA430908,PRJNA430908,WGBS
+SRR1508407,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508408,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508409,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508410,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508411,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508412,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508413,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508414,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508415,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508416,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508417,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR1508418,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR2960993,Neutolophils,Neutrophils,Neutrophils,PRJNA254517,PRJNA254517,RRBS
+SRR4031769,fibroblasts,Fibroblast,Fibroblast,PRJNA338951,PRJNA338951,WGBS
+SRR4031770,fibroblasts,Fibroblast,Fibroblast,PRJNA338951,PRJNA338951,WGBS
+SRR4031771,fibroblasts,Fibroblast,Fibroblast,PRJNA338951,PRJNA338951,WGBS
+SRR4031772,fibroblasts,Fibroblast,Fibroblast,PRJNA338951,PRJNA338951,WGBS
+SRR4031773,fibroblasts,Fibroblast,Fibroblast,PRJNA338951,PRJNA338951,WGBS
+SRR4031774,fibroblasts,Fibroblast,Fibroblast,PRJNA338951,PRJNA338951,WGBS
+SRR4031775,fibroblasts,Fibroblast,Fibroblast,PRJNA338951,PRJNA338951,WGBS
+SRR4031776,fibroblasts,Fibroblast,Fibroblast,PRJNA338951,PRJNA338951,WGBS
+SRR6666411,kidney,Kidney,Kidney,PRJNA432710,PRJNA432710,RRBS
+SRR6666412,kidney,Kidney,Kidney,PRJNA432710,PRJNA432710,RRBS
+SRR6666413,kidney,Kidney,Kidney,PRJNA432710,PRJNA432710,RRBS
+SRR530648,kidney,Kidney,Kidney,PRJNA171703,PRJNA171703,WGBS
+Hippocampus,Hippocampus,Nerve,Nerve,PRJNA629858,nanopore/PRJNA629858_hipo_liver_heart_nanopore,Nanopore
+Heart,Heart,Cardiovascular,Cardiovascular,PRJNA629858,nanopore/PRJNA629858_hipo_liver_heart_nanopore,Nanopore
+Liver,Liver,Liver,Liver,PRJNA629858,nanopore/PRJNA629858_hipo_liver_heart_nanopore,Nanopore
+SRR5532832,TN subject #1,CD8+T-cells,naive CTL,PRJNA386366,PRJNA386366,WGBS
+SRR5532833,TEM subject#1,CD8+T-cells,memory CTL,PRJNA386366,PRJNA386366,WGBS
+SRR5532834,TCM subject#1,CD8+T-cells,memory CTL,PRJNA386366,PRJNA386366,WGBS
+SRR5532835,TSCM subject#1,CD8+T-cells,,PRJNA386366,PRJNA386366,WGBS
+SRR5532836,TN subject #2,CD8+T-cells,naive CTL,PRJNA386366,PRJNA386366,WGBS
+SRR5532837,TEM subject#2,CD8+T-cells,memory CTL,PRJNA386366,PRJNA386366,WGBS
+SRR5532838,TCM subject#2,CD8+T-cells,memory CTL,PRJNA386366,PRJNA386366,WGBS
+SRR5532839,TSCM subject#2,CD8+T-cells,,PRJNA386366,PRJNA386366,WGBS
+SRR6808722,Adipocyte,Adipocytes,Adipocytes,PRJNA437062,PRJNA437062,WGBS
+SRR6808723,Adipocyte,Adipocytes,Adipocytes,PRJNA437062,PRJNA437062,WGBS
+SRR6808724,Adipocyte,Adipocytes,Adipocytes,PRJNA437062,PRJNA437062,WGBS
+SRR6808725,Adipocyte,Adipocytes,Adipocytes,PRJNA437062,PRJNA437062,WGBS
+SRR13983864,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983865,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983866,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983867,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983868,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983875,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983883,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983884,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983885,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983889,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983900,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983906,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983907,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983908,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR13983909,Bladder,Bladder,Bladder,PRJNA715028,PRJNA715028,RRBS
+SRR10447461,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447462,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447463,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447465,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447466,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447467,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447468,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447469,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447470,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447471,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447472,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447473,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447474,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447475,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447476,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447477,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447478,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447479,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447480,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447481,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447482,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447484,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447485,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447486,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447487,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447488,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447489,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447490,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447491,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447492,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447493,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447494,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447495,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447496,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447497,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447498,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447500,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447501,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447502,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447503,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447504,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447505,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447506,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447507,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447508,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447464,Cd8+PD1+Tim3+,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447483,Cd8+CD28+PD1+Tim3-,CD8+T-cells,exausted CTL,PRJNA589675,PRJNA589675,WGBS
+SRR10447499,CD8+CCR7+CD45RA+,CD8+T-cells,naive CTL,PRJNA589675,PRJNA589675,WGBS
+SRR6350325,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350326,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350327,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350328,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350329,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350330,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350331,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350332,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350333,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350334,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350335,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350336,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350337,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350338,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350339,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350340,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350341,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350342,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350343,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350345,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350346,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350347,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350349,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350350,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350351,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350352,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350353,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350354,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350355,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350356,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350357,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350358,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350359,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350360,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350361,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350362,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350363,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350364,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350365,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350366,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350367,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350344,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+SRR6350348,Thyroid,Thyroid,Thyroid,PRJNA421266,PRJNA421266,RRBS
+GSM1204705,na_ve_rep1,CD4+T-cells,naive Tconv,GSE49667,GSE49667,450K
+GSM1204706,rTreg_rep1,CD4+T-cells,naive Treg,GSE49667,GSE49667,450K
+GSM1204707,act_naive_rep1,CD4+T-cells,memory Tconv,GSE49667,GSE49667,450K
+GSM1204708,na_ve_rep2,CD4+T-cells,naive Tconv,GSE49667,GSE49667,450K
+GSM1204709,act_naive_rep2,CD4+T-cells,memory Tconv,GSE49667,GSE49667,450K
+GSM1204710,act_rTreg_rep1,CD4+T-cells,activated Treg,GSE49667,GSE49667,450K
+GSM1204711,na_ve_rep3,CD4+T-cells,naive Tconv,GSE49667,GSE49667,450K
+GSM1204712,rTreg_rep2,CD4+T-cells,naive Treg,GSE49667,GSE49667,450K
+GSM1204713,act_naive_rep3,CD4+T-cells,memory Tconv,GSE49667,GSE49667,450K
+GSM1204714,act_rTreg_rep2,CD4+T-cells,activated Treg,GSE49667,GSE49667,450K
+GSM1548155,MEP,Meg-Ery,Meg-Ery,GSE63409,GSE63409,450K
+GSM1548161,MEP,Meg-Ery,Meg-Ery,GSE63409,GSE63409,450K
+GSM1548167,MEP,Meg-Ery,Meg-Ery,GSE63409,GSE63409,450K
+GSM1548173,MEP,Meg-Ery,Meg-Ery,GSE63409,GSE63409,450K
+GSM1548178,MEP,Meg-Ery,Meg-Ery,GSE63409,GSE63409,450K
+GSM861665,CD14+_1,Monocytes,Monocytes,GSE35069,GSE35069,450K
+GSM861666,CD14+_2,Monocytes,Monocytes,GSE35069,GSE35069,450K
+GSM861667,CD14+_3,Monocytes,Monocytes,GSE35069,GSE35069,450K
+GSM861668,CD14+_4,Monocytes,Monocytes,GSE35069,GSE35069,450K
+GSM861669,CD14+_5,Monocytes,Monocytes,GSE35069,GSE35069,450K
+GSM861670,CD14+_6,Monocytes,Monocytes,GSE35069,GSE35069,450K
+GSM861677,CD56+_1,NK-cells,NK-cells,GSE35069,GSE35069,450K
+GSM861678,CD56+_2,NK-cells,NK-cells,GSE35069,GSE35069,450K
+GSM861679,CD56+_3,NK-cells,NK-cells,GSE35069,GSE35069,450K
+GSM861680,CD56+_4,NK-cells,NK-cells,GSE35069,GSE35069,450K
+GSM861681,CD56+_5,NK-cells,NK-cells,GSE35069,GSE35069,450K
+GSM861682,CD56+_6,NK-cells,NK-cells,GSE35069,GSE35069,450K
+GSM861683,Neu_1,Neutrophils,Neutrophils,GSE35069,GSE35069,450K
+GSM861684,Neu_2,Neutrophils,Neutrophils,GSE35069,GSE35069,450K
+GSM861685,Neu_3,Neutrophils,Neutrophils,GSE35069,GSE35069,450K
+GSM861686,Neu_4,Neutrophils,Neutrophils,GSE35069,GSE35069,450K
+GSM861687,Neu_5,Neutrophils,Neutrophils,GSE35069,GSE35069,450K
+GSM861688,Neu_6,Neutrophils,Neutrophils,GSE35069,GSE35069,450K
+GSM861689,Eos_1,Eosinophils,Eosinophils,GSE35069,GSE35069,450K
+GSM861690,Eos_2,Eosinophils,Eosinophils,GSE35069,GSE35069,450K
+GSM861691,Eos_3,Eosinophils,Eosinophils,GSE35069,GSE35069,450K
+GSM861692,Eos_4,Eosinophils,Eosinophils,GSE35069,GSE35069,450K
+GSM861693,Eos_5,Eosinophils,Eosinophils,GSE35069,GSE35069,450K
+GSM861694,Eos_6,Eosinophils,Eosinophils,GSE35069,GSE35069,450K
+GSM1672155,Monocyte_standard_FACS_ind1,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672156,nRBC_standard_FACS_ind1,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672158,Monocyte_standard_FACS_ind2,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672159,nRBC_standard_FACS_ind2,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672161,Monocyte_standard_FACS_ind3,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672162,nRBC_standard_FACS_ind3,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672164,Monocyte_standard_FACS_ind4,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672165,nRBC_standard_FACS_ind4,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672167,Monocyte_standard_FACS_ind5,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672168,nRBC_standard_FACS_ind5,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672173,Monocyte_stringent_FACS_ind6,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672174,NKcell_stringent_FACS_ind6,NK-cells,NK-cells,GSE68456,GSE68456,450K
+GSM1672175,nRBC_stringent_FACS_ind6,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672180,Monocyte_stringent_FACS_ind7,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672181,NKcell_stringent_FACS_ind7,NK-cells,NK-cells,GSE68456,GSE68456,450K
+GSM1672182,nRBC_stringent_FACS_ind7,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672187,Monocyte_stringent_FACS_ind8,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672188,NKcell_stringent_FACS_ind8,NK-cells,NK-cells,GSE68456,GSE68456,450K
+GSM1672189,nRBC_stringent_FACS_ind8,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672193,Monocyte_stringent_FACS_ind9,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672194,NKcell_stringent_FACS_ind9,NK-cells,NK-cells,GSE68456,GSE68456,450K
+GSM1672195,nRBC_stringent_FACS_ind9,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672200,Monocyte_stringent_FACS_ind10,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672201,NKcell_stringent_FACS_ind10,NK-cells,NK-cells,GSE68456,GSE68456,450K
+GSM1672202,nRBC_stringent_FACS_ind10,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672207,Monocyte_stringent_FACS_ind11,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672208,nRBC_stringent_FACS_ind11,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+GSM1672213,Monocyte_stringent_FACS_ind12,Monocytes,Monocytes,GSE68456,GSE68456,450K
+GSM1672214,NKcell_stringent_FACS_ind12,NK-cells,NK-cells,GSE68456,GSE68456,450K
+GSM1672215,nRBC_stringent_FACS_ind12,Meg-Ery,Meg-Ery,GSE68456,GSE68456,450K
+SRR10165698,liver,Liver,Liver,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165699,liver,Liver,Liver,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165700,liver,Liver,Liver,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165701,liver,Liver,Liver,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165702,liver,Liver,Liver,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165703,liver,Liver,Liver,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165704,liver,Liver,Liver,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165705,liver,Liver,Liver,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165620,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165621,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165622,monocytes,Monocytes,Monocytes,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165623,monocytes,Monocytes,Monocytes,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165624,monocytes,Monocytes,Monocytes,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165625,monocytes,Monocytes,Monocytes,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165626,monocytes,Monocytes,Monocytes,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165627,monocytes,Monocytes,Monocytes,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165628,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165629,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165630,monocytes,Monocytes,Monocytes,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165631,monocytes,Monocytes,Monocytes,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165632,monocytes,Monocytes,Monocytes,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165633,monocytes,Monocytes,Monocytes,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165634,monocytes,Monocytes,Monocytes,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165635,monocytes,Monocytes,Monocytes,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165636,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165637,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165638,monocytes,Monocytes,Monocytes,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165639,monocytes,Monocytes,Monocytes,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165640,monocytes,Monocytes,Monocytes,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165641,monocytes,Monocytes,Monocytes,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165642,monocytes,Monocytes,Monocytes,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165643,monocytes,Monocytes,Monocytes,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165644,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165645,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165646,monocytes,Monocytes,Monocytes,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165647,monocytes,Monocytes,Monocytes,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165648,monocytes,Monocytes,Monocytes,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165649,monocytes,Monocytes,Monocytes,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165650,monocytes,Monocytes,Monocytes,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165651,monocytes,Monocytes,Monocytes,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165652,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165653,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165654,monocytes,Monocytes,Monocytes,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165655,monocytes,Monocytes,Monocytes,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165656,monocytes,Monocytes,Monocytes,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165657,monocytes,Monocytes,Monocytes,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165658,monocytes,Monocytes,Monocytes,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165659,monocytes,Monocytes,Monocytes,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165660,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165661,monocytes,Monocytes,Monocytes,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165662,monocytes,Monocytes,Monocytes,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165663,monocytes,Monocytes,Monocytes,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165664,monocytes,Monocytes,Monocytes,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165665,monocytes,Monocytes,Monocytes,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165552,macrophages type 1,Monocytes,Macrophage,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165553,macrophages type 1,Monocytes,Macrophage,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165554,macrophages type 1,Monocytes,Macrophage,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165555,macrophages type 1,Monocytes,Macrophage,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165556,macrophages type 1,Monocytes,Macrophage,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165557,macrophages type 1,Monocytes,Macrophage,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165558,macrophages type 1,Monocytes,Macrophage,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165559,macrophages type 1,Monocytes,Macrophage,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165561,macrophages type 2,Monocytes,Macrophage,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165562,macrophages type 2,Monocytes,Macrophage,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165563,macrophages type 2,Monocytes,Macrophage,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165564,macrophages type 2,Monocytes,Macrophage,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165565,macrophages type 2,Monocytes,Macrophage,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165566,macrophages type 2,Monocytes,Macrophage,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165567,macrophages type 2,Monocytes,Macrophage,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165480,bladder epith cells,Bladder,Bladder,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165481,bladder epith cells,Bladder,Bladder,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165482,bladder epith cells,Bladder,Bladder,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165483,bladder epith cells,Bladder,Bladder,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165484,bladder epith cells,Bladder,Bladder,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165485,bladder epith cells,Bladder,Bladder,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165486,bladder epith cells,Bladder,Bladder,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165487,bladder epith cells,Bladder,Bladder,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165488,bladder epith cells,Bladder,Bladder,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165489,bladder epith cells,Bladder,Bladder,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165490,bladder epith cells,Bladder,Bladder,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165491,bladder epith cells,Bladder,Bladder,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165492,bladder epith cells,Bladder,Bladder,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165493,bladder epith cells,Bladder,Bladder,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165494,bladder epith cells,Bladder,Bladder,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165495,bladder epith cells,Bladder,Bladder,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165496,liver,Liver,Liver,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165497,liver,Liver,Liver,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165498,liver,Liver,Liver,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165499,liver,Liver,Liver,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165500,liver,Liver,Liver,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165501,liver,Liver,Liver,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165502,liver,Liver,Liver,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165503,liver,Liver,Liver,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165504,brain,Nerve,Nerve,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165505,brain,Nerve,Nerve,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165506,brain,Nerve,Nerve,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165507,brain,Nerve,Nerve,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165508,brain,Nerve,Nerve,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165509,brain,Nerve,Nerve,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165510,brain,Nerve,Nerve,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165511,brain,Nerve,Nerve,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165512,brain,Nerve,Nerve,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165513,brain,Nerve,Nerve,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165514,brain,Nerve,Nerve,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165515,brain,Nerve,Nerve,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165528,liver,Liver,Liver,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165529,liver,Liver,Liver,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165530,liver,Liver,Liver,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165531,liver,Liver,Liver,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165532,liver,Liver,Liver,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165533,liver,Liver,Liver,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165534,liver,Liver,Liver,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165535,liver,Liver,Liver,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165412,breast,Breast,Breast,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+SRR10165413,breast,Breast,Breast,PRJNA574551,PRJNA574550_various_wgbs,WGBS
+SRR10165414,breast,Breast,Breast,PRJNA574552,PRJNA574550_various_wgbs,WGBS
+SRR10165415,breast,Breast,Breast,PRJNA574553,PRJNA574550_various_wgbs,WGBS
+SRR10165416,breast,Breast,Breast,PRJNA574554,PRJNA574550_various_wgbs,WGBS
+SRR10165417,breast,Breast,Breast,PRJNA574555,PRJNA574550_various_wgbs,WGBS
+SRR10165418,breast,Breast,Breast,PRJNA574556,PRJNA574550_various_wgbs,WGBS
+SRR10165419,breast,Breast,Breast,PRJNA574550,PRJNA574550_various_wgbs,WGBS
+GSM2389805,BileDuct,BileDuct,BileDuct,GSE89803,GSE89803,450K
+GSM2389806,BileDuct,BileDuct,BileDuct,GSE89803,GSE89803,450K
+GSM2389807,BileDuct,BileDuct,BileDuct,GSE89803,GSE89803,450K
+GSM2389808,BileDuct,BileDuct,BileDuct,GSE89803,GSE89803,450K
+GSM4728493,Pat 01_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728495,Pat 02_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728497,Pat 03_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728499,Pat 04_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728503,Pat 06_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728504,Pat 07_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728508,Pat 09_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728510,Pat 11_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728514,Pat 12_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728516,Pat 13_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728519,Pat 14_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728524,Pat 16_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728526,Pat 17_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728531,Pat 19_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728534,Pat 20_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728538,Pat 22_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728541,Pat 23_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728543,Pat 25_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728550,Pat 28_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728553,Pat 29_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728557,Pat 30_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728559,Pat 31_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728561,"	Pat 32_bile duct control - normal",BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728562,Pat 33_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728565,Pat 34_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728567,Pat 35_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728570,Pat 37_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728574,Pat 38_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728576,Pat 39_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728578,Pat 40_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728580,Pat 41_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728583,Pat 42_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728585,Pat 43_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728588,Pat 44_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728592,Pat 46_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728595,Pat 47_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728598,Pat 48_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728600,Pat 49_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728602,Pat 51_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728606,Pat 53_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC
+GSM4728608,Pat 54_bile duct control - normal,BileDuct,BileDuct,GSE156299,GSE156299,EPIC

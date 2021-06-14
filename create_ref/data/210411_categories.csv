@@ -1,0 +1,38 @@
+Tissue,MinorGroup
+Adipocytes,Adipocytes
+AdrenalGland,AdrenalGland
+Nerve,Nerve
+Skin,Skin
+Muscle,Muscle
+Cardiovascular,Cardiovascular
+Esophangus,Esophangus
+Stomach,Stomach
+SmallIntestine,SmallIntestine
+Colon,Colon
+Liver,Liver
+BileDuct,BileDuct
+Pancreas,Pancreas
+Thyroid,Thyroid
+Ovary,Ovary
+Testis,Testis
+Kidney,Kidney
+Bladder,Bladder
+Prostate,Prostate
+Breast,Breast
+Lung,Lung
+Endothelial-cells,Endothelial-cells
+Meg-Ery,Meg-Ery
+Neutrophils,Neutrophils
+Eosinophils,Eosinophils
+Monocytes,Monocytes
+Monocytes,Macrophage
+B-cells,preGCB-cells
+B-cells,matureB-cells
+CD4+T-cells,naive Treg
+CD4+T-cells,activated Treg
+CD4+T-cells,memory Tconv
+CD4+T-cells,naive Tconv
+CD8+T-cells,effector CTL
+CD8+T-cells,memory CTL
+CD8+T-cells,exausted CTL
+NK-cells,NK-cells
