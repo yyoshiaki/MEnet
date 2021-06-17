@@ -42,8 +42,6 @@ def train(args):
         dict_input = yaml.load(f)
     # print(dict_input)
 
-    f_selected = dict_input['reference']
-    f_integrated = dict_input['integrated']
     f_pickle = dict_input['pickle']
     f_ref = dict_input['ref_table']
     f_category = dict_input['category']
@@ -91,6 +89,10 @@ def train(args):
 
     except:
         print('no processed pickle file. Now generating inputs...')
+
+        f_integrated = dict_input['integrated']
+        f_selected = dict_input['reference']
+
         df_selected = \
             pd.read_csv(f_selected, index_col=0)
         df_selected = df_selected.drop_duplicates()
