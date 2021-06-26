@@ -307,6 +307,6 @@ def train(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     args = parser.parse_args()
-    args.input_yaml = 'test/train/210228_optuna_CV.yaml'
+    args.input_yaml = 'test/train/210411_optuna_CV.yaml'
     args.device = 'cpu'
     train(args)

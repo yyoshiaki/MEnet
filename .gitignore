@@ -134,3 +134,5 @@ tmp_menet
 .ipynb_checkpoints
 data/*.win*.bed.gz
 test
+._.DS_Store
+.DS_Store
