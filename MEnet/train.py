@@ -249,8 +249,9 @@ def train(args):
             pickle.dump([list_imp, list_best_models_states], f_out)
 
         return cv
-
-    study = optuna.create_study(direction="minimize")
+    
+    sampler = optuna.samplers.CmaEsSampler()
+    study = optuna.create_study(direction="minimize", sampler=sampler)
     study.optimize(objective, n_trials=N_TRIALS)
 
     pruned_trials = [t for t in study.trials if t.state ==
