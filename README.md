@@ -82,6 +82,8 @@ pickle: test/train/210228_df.pickle
 ref_table: test/train/210228_ref_ordered.csv
 category: test/train/210228_categories.csv
 output_dir: test/train/210228_optuna_CV
+study_name: 210228_optuna_CV
+storage: sqlite:///MEnet.optuna.db
 n_splits: 5
 fill: mean
 n_epochs: 200000
@@ -95,6 +97,12 @@ example
 
 ```
 MEnet train test/train/210228_optuna_CV.yaml 
+```
+
+By just runnning MEnet train in other terminals, user can train a model in parallel. Optuna dashboard is useful for monitoring the reusult. [https://github.com/optuna/optuna-dashboard](https://github.com/optuna/optuna-dashboard)
+
+```
+optuna-dashboard sqlite:///MEnet.optuna.db
 ```
 
 ## For developers

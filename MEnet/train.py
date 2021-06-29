@@ -46,6 +46,8 @@ def train(args):
     f_ref = dict_input['ref_table']
     f_category = dict_input['category']
     dir_output = dict_input['output_dir']
+    study_name = dict_input['study_name']
+    storage = dict_input['storage']
     n_splits = dict_input['n_splits']
     fill = dict_input['fill']
     EPOCHS = dict_input['n_epochs']
@@ -251,7 +253,8 @@ def train(args):
         return cv
     
     sampler = optuna.samplers.CmaEsSampler()
-    study = optuna.create_study(direction="minimize", sampler=sampler)
+    study = optuna.create_study(direction="minimize", sampler=sampler,
+            study_name=study_name, storage=storage, load_if_exists=True)
     study.optimize(objective, n_trials=N_TRIALS)
 
     pruned_trials = [t for t in study.trials if t.state ==
