@@ -93,7 +93,13 @@ seed: 0
 batch_size: 20
 ```
 
-SQLite cannot be used for training by multi clients. If using GCP, install PyMySQL by `pip install PyMySQL`, and specify storage like,
+SQLite cannot be used for training by multi clients. If using GCP, install PyMySQL by `pip install PyMySQL`, create a db,
+
+```
+mysql --host=IP --user=root --password  -e "CREATE DATABASE IF NOT EXISTS MEnet"
+```
+
+and specify storage like,
 
 ```
 storage: mysql+pymysql://root:PASS@IP/MEnet
