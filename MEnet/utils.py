@@ -51,10 +51,12 @@ class Mixup_dataset(torch.utils.data.Dataset):
         if self.transform == 'mix':
             #             idx_rand = torch.multinomial(torch.ones(self.data.shape[0]), self.n_choise)
             #             idx_rand = torch.multinomial(torch.ones(self.data.shape[0]), np.random.randint(1, self.n_choise))
+            size = np.random.randint(1, self.n_choise)
             idx_rand = np.random.choice(range(self.data_num),
-                                        size=np.random.randint(1, self.n_choise), p=self.p)
-            out_data = self.data[idx_rand].mean(axis=0)
-            out_label = self.label[idx_rand].mean(axis=0)
+                                        size=size, p=self.p)
+            mix_rate = np.random.rand(size)
+            out_data = (self.data[idx_rand].T * mix_rate).T.sum(axis=0) / mix_rate.sum()
+            out_label = (self.label[idx_rand].T * mix_rate).T.sum(axis=0) / mix_rate.sum()
 
         else:
             out_data = self.data[idx]

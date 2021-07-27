@@ -114,6 +114,8 @@ def train(args):
 
     labels = pd.get_dummies(df_ref_assigned.MinorGroup)[df_cat.MinorGroup]
 
+    print('% Nan in the dataset : {}'.format(100 * df.isna().sum().sum() / (df.shape[0] * df.shape[1])))
+
     # if df.shape[0] != df_ref_assigned.shape[0]:
     #     raise ValueError('The input file is incompatible form. Try to delete the picke file.')
 
@@ -311,6 +313,6 @@ def train(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     args = parser.parse_args()
-    args.input_yaml = 'test/train/210411_optuna_CV.yaml'
-    args.device = 'cpu'
+    args.input_yaml = 'test/train/210714/MEnet_train.dev.yaml'
+    args.device = 'cuda'
     train(args)
