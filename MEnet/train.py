@@ -110,6 +110,7 @@ def train(args):
 
         df = df[['rate_' + x for x in df_ref_assigned.FileID]]
         df.columns = df_ref_assigned.FileID
+        df = df.loc[df.isna().sum(axis=1) < df.shape[1] * 0.7]
         df.to_pickle(f_pickle)
 
     labels = pd.get_dummies(df_ref_assigned.MinorGroup)[df_cat.MinorGroup]
