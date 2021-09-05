@@ -89,6 +89,7 @@ fill: mean
 n_epochs: 200000
 patience: 500
 n_trials: 10
+train_noise: 0.01
 seed: 0
 batch_size: 20
 ```

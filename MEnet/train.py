@@ -49,6 +49,7 @@ def train(args):
     study_name = dict_input['study_name']
     storage = dict_input['storage']
     n_splits = dict_input['n_splits']
+    noise = dict_input['train_noise']
     fill = dict_input['fill']
     EPOCHS = dict_input['n_epochs']
     N_TRIALS = dict_input['n_trials']
@@ -161,7 +162,7 @@ def train(args):
             list_imp.append(imp)
 
             dataset = utils.Mixup_dataset(x_train, y_train, transform='mix', imputation=imp,
-                                          noise=0.01, n_choise=10, dropout=0.4)
+                                          noise=noise, n_choise=10, dropout=0.4)
             dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True,
                                                      num_workers=os.cpu_count(), worker_init_fn=utils.worker_init_fn)
 
