@@ -154,7 +154,7 @@ def train(args):
                 imp = SimpleImputer(missing_values=np.nan,
                                     strategy='constant', fill_value=fill)
             elif fill in ['median', 'mean', 'most_frequent']:
-                imp = SimpleImputer(missing_values=np.nan, strategy='median')
+                imp = SimpleImputer(missing_values=np.nan, strategy=fill)
 
             imp.fit(x_train)
             list_imp.append(imp)
@@ -313,6 +313,6 @@ def train(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     args = parser.parse_args()
-    args.input_yaml = 'test/train/210714/MEnet_train.dev.yaml'
-    args.device = 'cuda'
+    args.input_yaml = 'test/train/210821/MEnet_train.dev.yaml'
+    args.device = 'cuda:1'
     train(args)
