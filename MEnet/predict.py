@@ -75,12 +75,12 @@ def predict(args):
     os.makedirs(args.output_dir, exist_ok=True)
 
     # save args
-    with open("{d}/params.{t}.json".format(d=args.output_dir, t=t.strftime('%Y%m%d_%H%M%S')),
+    with open("{d}/{p}params.{t}.json".format(d=args.output_dir, t=t.strftime('%Y%m%d_%H%M%S'), p=args.output_prefix),
               mode="w") as f:
         json.dump(args.__dict__, f, indent=4,
                   default=lambda o: '<not serializable>')
 
-    with open("{d}/MEnet.{t}.log".format(d=args.output_dir, t=t.strftime('%Y%m%d_%H%M%S')),
+    with open("{d}/{p}MEnet.{t}.log".format(d=args.output_dir, p=args.output_prefix, t=t.strftime('%Y%m%d_%H%M%S')),
               mode="w") as f:
         f.writelines('MEnet version : {} \n'.format(_version.__version__))
         f.writelines(t.isoformat(timespec='minutes'))
@@ -133,7 +133,7 @@ def predict(args):
     df_pred = df_pred / df_pred.sum()
 
     print(df_pred)
-    df_pred.to_csv('{}/cell_proportion_MinorGroup.csv'.format(args.output_dir))
+    df_pred.to_csv('{d}/{p}cell_proportion_MinorGroup.csv'.format(d=args.output_dir, p=args.output_prefix))
 
     print('plotting...')
     for c in tqdm(df_pred.columns):
@@ -142,13 +142,13 @@ def predict(args):
         df_pred[c].plot.bar()
         plt.title(c_rep)
         plt.ylim(0, 1)
-        plt.savefig('{d}/barplot_cell_proportion_MinorGroup_{c}.pdf'.format(d=args.output_dir, c=c_rep),
+        plt.savefig('{d}/{p}barplot_cell_proportion_MinorGroup_{c}.pdf'.format(d=args.output_dir, p=args.output_prefix, c=c_rep),
                     bbox_inches='tight')
 
     plt.figure(figsize=(4+0.4*df_pred.shape[1], 8))
     sns.heatmap(df_pred, vmin=0, vmax=1, cmap='viridis', square=True)
     plt.title("Minor Category")
-    plt.savefig('{d}/heatmap_cell_proportion_MinorGroup.pdf'.format(d=args.output_dir),
+    plt.savefig('{d}/{p}heatmap_cell_proportion_MinorGroup.pdf'.format(d=args.output_dir, p=args.output_prefix),
                 bbox_inches='tight')
 
     df_pred['MinorGroup'] = df_pred.index
@@ -156,7 +156,7 @@ def predict(args):
         sum().loc[df_cat['Tissue'].drop_duplicates()]
 
     print(df_pred)
-    df_pred.to_csv('{}/cell_proportion_MajorGroup.csv'.format(args.output_dir))
+    df_pred.to_csv('{d}/{p}cell_proportion_MajorGroup.csv'.format(d=args.output_dir, p=args.output_prefix))
 
     print('plotting...')
     for c in tqdm(df_pred.columns):
@@ -165,13 +165,13 @@ def predict(args):
         df_pred[c].plot.bar()
         plt.title(c_rep)
         plt.ylim(0, 1)
-        plt.savefig('{d}/barplot_cell_proportion_MajorGroup_{c}.pdf'.format(d=args.output_dir, c=c_rep),
+        plt.savefig('{d}/{p}barplot_cell_proportion_MajorGroup_{c}.pdf'.format(d=args.output_dir, p=args.output_prefix, c=c_rep),
                     bbox_inches='tight')
 
     plt.figure(figsize=(4+0.4*df_pred.shape[1], 8))
     sns.heatmap(df_pred, vmin=0, vmax=1, cmap='viridis', square=True)
     plt.title("Major Category")
-    plt.savefig('{d}/heatmap_cell_proportion_MajorGroup.pdf'.format(d=args.output_dir),
+    plt.savefig('{d}/{p}heatmap_cell_proportion_MajorGroup.pdf'.format(d=args.output_dir, p=args.output_prefix),
                 bbox_inches='tight')
 
     print('completed!')
