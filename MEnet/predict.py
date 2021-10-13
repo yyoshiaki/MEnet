@@ -123,8 +123,11 @@ def predict(args):
 
         y_pred = model(torch.FloatTensor(imp.transform(X)))  # .to(device))
         # print(F.softmax(y_pred).cpu().detach().numpy())
-        y_pred = F.softmax(
-            y_pred, dim=y_pred.shape[0]).cpu().detach().numpy().T
+        # print(y_pred.shape)
+        # print(y_pred.head())
+        # y_pred = F.softmax(
+        #     y_pred, dim=y_pred.shape[0]).cpu().detach().numpy().T
+        y_pred = F.softmax(y_pred).cpu().detach().numpy().T
         y_pred_cv += y_pred
 
     df_pred = pd.DataFrame(y_pred_cv)
@@ -135,44 +138,45 @@ def predict(args):
     print(df_pred)
     df_pred.to_csv('{d}/{p}cell_proportion_MinorGroup.csv'.format(d=args.output_dir, p=args.output_prefix))
 
-    print('plotting...')
-    for c in tqdm(df_pred.columns):
-        c_rep = c.replace('/', '_')
-        plt.figure(figsize=(6, 2))
-        df_pred[c].plot.bar()
-        plt.title(c_rep)
-        plt.ylim(0, 1)
-        plt.savefig('{d}/{p}barplot_cell_proportion_MinorGroup_{c}.pdf'.format(d=args.output_dir, p=args.output_prefix, c=c_rep),
+    if not args.plotoff:
+        print('plotting...')
+        for c in tqdm(df_pred.columns):
+            c_rep = c.replace('/', '_')
+            plt.figure(figsize=(6, 2))
+            df_pred[c].plot.bar()
+            plt.title(c_rep)
+            plt.ylim(0, 1)
+            plt.savefig('{d}/{p}barplot_cell_proportion_MinorGroup_{c}.pdf'.format(d=args.output_dir, p=args.output_prefix, c=c_rep),
+                        bbox_inches='tight')
+
+        plt.figure(figsize=(4+0.4*df_pred.shape[1], 8))
+        sns.heatmap(df_pred, vmin=0, vmax=1, cmap='viridis', square=True)
+        plt.title("Minor Category")
+        plt.savefig('{d}/{p}heatmap_cell_proportion_MinorGroup.pdf'.format(d=args.output_dir, p=args.output_prefix),
                     bbox_inches='tight')
 
-    plt.figure(figsize=(4+0.4*df_pred.shape[1], 8))
-    sns.heatmap(df_pred, vmin=0, vmax=1, cmap='viridis', square=True)
-    plt.title("Minor Category")
-    plt.savefig('{d}/{p}heatmap_cell_proportion_MinorGroup.pdf'.format(d=args.output_dir, p=args.output_prefix),
-                bbox_inches='tight')
+        df_pred['MinorGroup'] = df_pred.index
+        df_pred = pd.merge(df_pred, df_cat, how='left').groupby(by='Tissue').\
+            sum().loc[df_cat['Tissue'].drop_duplicates()]
 
-    df_pred['MinorGroup'] = df_pred.index
-    df_pred = pd.merge(df_pred, df_cat, how='left').groupby(by='Tissue').\
-        sum().loc[df_cat['Tissue'].drop_duplicates()]
+        print(df_pred)
+        df_pred.to_csv('{d}/{p}cell_proportion_MajorGroup.csv'.format(d=args.output_dir, p=args.output_prefix))
 
-    print(df_pred)
-    df_pred.to_csv('{d}/{p}cell_proportion_MajorGroup.csv'.format(d=args.output_dir, p=args.output_prefix))
+        print('plotting...')
+        for c in tqdm(df_pred.columns):
+            c_rep = c.replace('/', '_')
+            plt.figure(figsize=(6, 2))
+            df_pred[c].plot.bar()
+            plt.title(c_rep)
+            plt.ylim(0, 1)
+            plt.savefig('{d}/{p}barplot_cell_proportion_MajorGroup_{c}.pdf'.format(d=args.output_dir, p=args.output_prefix, c=c_rep),
+                        bbox_inches='tight')
 
-    print('plotting...')
-    for c in tqdm(df_pred.columns):
-        c_rep = c.replace('/', '_')
-        plt.figure(figsize=(6, 2))
-        df_pred[c].plot.bar()
-        plt.title(c_rep)
-        plt.ylim(0, 1)
-        plt.savefig('{d}/{p}barplot_cell_proportion_MajorGroup_{c}.pdf'.format(d=args.output_dir, p=args.output_prefix, c=c_rep),
+        plt.figure(figsize=(4+0.4*df_pred.shape[1], 8))
+        sns.heatmap(df_pred, vmin=0, vmax=1, cmap='viridis', square=True)
+        plt.title("Major Category")
+        plt.savefig('{d}/{p}heatmap_cell_proportion_MajorGroup.pdf'.format(d=args.output_dir, p=args.output_prefix),
                     bbox_inches='tight')
-
-    plt.figure(figsize=(4+0.4*df_pred.shape[1], 8))
-    sns.heatmap(df_pred, vmin=0, vmax=1, cmap='viridis', square=True)
-    plt.title("Major Category")
-    plt.savefig('{d}/{p}heatmap_cell_proportion_MajorGroup.pdf'.format(d=args.output_dir, p=args.output_prefix),
-                bbox_inches='tight')
 
     print('completed!')
 
@@ -181,9 +185,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     args = parser.parse_args()
     args.input = 'test/predict/Minion_STR1_Fr6.bis.cov.gz'
-    args.model = 'test/train/210228_optuna_CV/best_model.pickle'
+    args.model = 'test/train/best_model.pickle'
     args.input_type = 'bismark'
     args.output_dir = 'test/predict/Minion_STR1_Fr6'
+    args.output_prefix = ''
     args.bedtools = 'bedtools'
     # args.device = 'cpu'
 

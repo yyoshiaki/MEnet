@@ -63,6 +63,8 @@ def main():
         '--output_prefix', metavar='output_prefix', help='prefix of output files', default="")
     parser_predict.add_argument(
         '--bedtools', type=str, default='bedtools', help='Full path to bedtools.')
+    parser_predict.add_argument(
+        '--plotoff', action='store_true', default='plotoff', help='Do not generate plots.')
     # parser_predict.add_argument('--device', type=str, default=None, help='device for pytorch. (ex. cpu, cuda)')
 
     parser_predict.set_defaults(handler=command_predict)
