@@ -122,12 +122,8 @@ def predict(args):
         model.eval()
 
         y_pred = model(torch.FloatTensor(imp.transform(X)))  # .to(device))
-        # print(F.softmax(y_pred).cpu().detach().numpy())
-        # print(y_pred.shape)
-        # print(y_pred.head())
-        # y_pred = F.softmax(
-        #     y_pred, dim=y_pred.shape[0]).cpu().detach().numpy().T
-        y_pred = F.softmax(y_pred).cpu().detach().numpy().T
+        y_pred = F.softmax(
+            y_pred, dim=1).cpu().detach().numpy().T
         y_pred_cv += y_pred
 
     df_pred = pd.DataFrame(y_pred_cv)
@@ -155,13 +151,15 @@ def predict(args):
         plt.savefig('{d}/{p}heatmap_cell_proportion_MinorGroup.pdf'.format(d=args.output_dir, p=args.output_prefix),
                     bbox_inches='tight')
 
-        df_pred['MinorGroup'] = df_pred.index
-        df_pred = pd.merge(df_pred, df_cat, how='left').groupby(by='Tissue').\
-            sum().loc[df_cat['Tissue'].drop_duplicates()]
+    df_pred['MinorGroup'] = df_pred.index
+    df_pred = pd.merge(df_pred, df_cat, how='left').groupby(by='Tissue').\
+        sum().loc[df_cat['Tissue'].drop_duplicates()]
 
-        print(df_pred)
-        df_pred.to_csv('{d}/{p}cell_proportion_MajorGroup.csv'.format(d=args.output_dir, p=args.output_prefix))
+    print(df_pred)
+    df_pred.to_csv('{d}/{p}cell_proportion_MajorGroup.csv'.format(d=args.output_dir, p=args.output_prefix))
 
+
+    if not args.plotoff:
         print('plotting...')
         for c in tqdm(df_pred.columns):
             c_rep = c.replace('/', '_')
@@ -190,6 +188,7 @@ if __name__ == "__main__":
     args.output_dir = 'test/predict/Minion_STR1_Fr6'
     args.output_prefix = ''
     args.bedtools = 'bedtools'
+    args.plotoff = False
     # args.device = 'cpu'
 
     predict(args)
