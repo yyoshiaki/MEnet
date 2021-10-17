@@ -92,4 +92,3 @@ dependencies:
     - tqdm==4.59.0
     - typing-extensions==3.7.4.3
     - zipp==3.4.1
-prefix: /home/yumezu/anaconda3/envs/menet_dev
