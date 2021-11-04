@@ -47,12 +47,19 @@ def read_input(f_input, input_type, idx_regions, dir_out, p_bedtools):
 
     # print(input_type)
     if input_type == 'bismark':
-        if not os.path.exists('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=f_input.split('/')[-1].split('.bis')[0], t=tile_bp)):
+        # print('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=f_input.split('/')[-1].split('.bis')[0], t=tile_bp))
+        print('{n}.tile{t}bp.csv'.format(n=f_input.split('.bis')[0], t=tile_bp))
+        if os.path.exists('{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=f_input.split('/')[-1].split('.bis')[0], t=tile_bp)):
+            df_input = pd.read_csv('{d}/{n}.tile{t}bp.csv'.format(
+                d=dir_out, n=f_input.split('/')[-1].split('.bis')[0], t=tile_bp), index_col=0)
+        elif os.path.exists('{n}.tile{t}bp.csv'.format(n=f_input.split('.bis')[0], t=tile_bp)):
+            df_input = pd.read_csv('{n}.tile{t}bp.csv'.format(n=f_input.split('.bis')[0], t=tile_bp), 
+                                    index_col=0)
+        else:
             print('Tiling bismark cov...')
             df_input = utils.tile_bismark(f_input, tile_bp, p_bedtools)
             df_input.to_csv(
                 '{d}/{n}.tile{t}bp.csv'.format(d=dir_out, n=df_input.columns[0], t=tile_bp))
-        else:
             df_input = pd.read_csv('{d}/{n}.tile{t}bp.csv'.format(
                 d=dir_out, n=f_input.split('/')[-1].split('.bis')[0], t=tile_bp), index_col=0)
 
