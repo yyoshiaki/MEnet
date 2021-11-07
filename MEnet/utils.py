@@ -4,6 +4,7 @@
 import shutil
 import os
 import subprocess
+import time
 
 import pandas as pd
 import torch
@@ -222,29 +223,33 @@ def tile_bismark(f_bismark, tile_bp, p_bedtools):
 
     ref = 'hg38'
 
+    time_tmp = str(int(time.time()*100))
+
     n = f_bismark.split('/')[-1].split('.bis')[0]
     print('sample name : ', n)
-    os.makedirs('tmp_menet', exist_ok=True)
+    os.makedirs('.tmp_menet', exist_ok=True)
     check_tile(tile_bp, ref, p_bedtools)
 
     cmd = '{b} sort -i {f} > {f_sort}'.format(
-        b=p_bedtools, f=f_bismark, f_sort='tmp_menet/tmp.sort.txt')
+        b=p_bedtools, f=f_bismark, f_sort='.tmp_menet/tmp.{}.sort.txt'.format(time_tmp))
     print(cmd)
     subprocess.run(cmd, shell=True)
 
     cmd = '{b} map -a {d}/../data/{r}.win{x}.bed.gz -b {bis} -c 4,5,6 -o mean,sum,sum | grep -v "\.\s*\." > {o}'.format(
         b=p_bedtools, d=os.path.dirname(os.path.abspath(__file__)),
-        x=tile_bp, bis='tmp_menet/tmp.sort.txt', o='tmp_menet/tmp.tile.txt', r=ref)
+        x=tile_bp, bis='.tmp_menet/tmp.{}.sort.txt'.format(time_tmp), o='.tmp_menet/tmp.{}.tile.txt'.format(time_tmp), r=ref)
     print(cmd)
     subprocess.run(cmd, shell=True)
-    f = 'tmp_menet/tmp.tile.txt'
+    f = '.tmp_menet/tmp.{}.tile.txt'.format(time_tmp)
     df = parse_bismark(f, tile_bp)
     df.columns = ['CpGs', n]
     df.index = df['CpGs']
     df.index.name = 'CpGs'
     df = df[[n]]
 
-    shutil.rmtree('tmp_menet')
+    # shutil.rmtree('tmp_menet')
+    os.remove('.tmp_menet/tmp.{}.sort.txt'.format(time_tmp))
+    os.remove('.tmp_menet/tmp.{}.tile.txt'.format(time_tmp))
 
     return df
 
