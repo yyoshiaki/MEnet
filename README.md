@@ -4,10 +4,24 @@ MEnet is a neural-net based deconvolution method for methylation data. MEnet can
 
 ## Installation
 
+### Without Docker
+
 1. Install pytorch. [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/)
 2. git clone this repo.
 3. `python setup.py install`
 4. If you use the `--input_type bismark` option, you need to install `bedtools` locally.
+
+## with Docker
+
+```
+docker build -t menet:latest .
+```
+
+Example usage 
+
+```
+docker run --rm -it -v $PWD:/menet menet:latest MEnet predict -i Minion_STR1_Fr6.bis.cov.gz -m 657.pickle
+```
 
 ## Prediction
 

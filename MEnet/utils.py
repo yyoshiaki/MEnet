@@ -189,13 +189,13 @@ def detect_delim(f_input):
 
 
 def check_tile(t, ref, p_bedtools):
-    if not os.path.exists('{d}/../data/{r}.win{t}.bed.gz'.format(r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=t)):
-        cmd = '{b} makewindows -g {d}/../data/{r}.sort.genome -w {t} > {d}/../data/{r}.win{t}.bed'.format(
+    if not os.path.exists('{d}/data/{r}.win{t}.bed.gz'.format(r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=t)):
+        cmd = '{b} makewindows -g {d}/data/{r}.sort.genome -w {t} > {d}/data/{r}.win{t}.bed'.format(
             b=p_bedtools, d=os.path.dirname(os.path.abspath(__file__)), t=t, r=ref)
         print(cmd)
         subprocess.run(cmd, shell=True)
 
-        cmd = 'gzip {d}/../data/{r}.win{t}.bed'.format(
+        cmd = 'gzip {d}/data/{r}.win{t}.bed'.format(
             r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=t)
         print(cmd)
         subprocess.run(cmd, shell=True)
@@ -235,7 +235,7 @@ def tile_bismark(f_bismark, tile_bp, p_bedtools):
     print(cmd)
     subprocess.run(cmd, shell=True)
 
-    cmd = '{b} map -a {d}/../data/{r}.win{x}.bed.gz -b {bis} -c 4,5,6 -o mean,sum,sum | grep -v "\.\s*\." > {o}'.format(
+    cmd = '{b} map -a {d}/data/{r}.win{x}.bed.gz -b {bis} -c 4,5,6 -o mean,sum,sum | grep -v "\.\s*\." > {o}'.format(
         b=p_bedtools, d=os.path.dirname(os.path.abspath(__file__)),
         x=tile_bp, bis='.tmp_menet/tmp.{}.sort.txt'.format(time_tmp), o='.tmp_menet/tmp.{}.tile.txt'.format(time_tmp), r=ref)
     print(cmd)
@@ -260,7 +260,7 @@ def tile_array(f_input, input_filetype, tile_bp):
 
     try:
         df_probeid_name = pd.read_csv(
-            '{d}/../data/probeID_name_win{t}bp.{r}.csv.gz'.format(
+            '{d}/data/probeID_name_win{t}bp.{r}.csv.gz'.format(
                 r=ref, d=os.path.dirname(os.path.abspath(__file__)), t=tile_bp), index_col=0)
     except ValueError:
         print('The index file; ProbeID - tiling windows is not prepared for the tile(bp).')
