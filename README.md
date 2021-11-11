@@ -11,7 +11,7 @@ MEnet is a neural-net based deconvolution method for methylation data. MEnet can
 3. `python setup.py install`
 4. If you use the `--input_type bismark` option, you need to install `bedtools` locally.
 
-## with Docker
+### with Docker
 
 ```
 docker build -t menet:latest .
@@ -105,7 +105,7 @@ patience: 500
 n_trials: 10
 train_noise: 0.01
 seed: 0
-batch_size: 20
+batch_size: 200
 ```
 
 SQLite cannot be used for training by multi clients. If using GCP, install PyMySQL by `pip install PyMySQL`, create a db,

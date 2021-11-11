@@ -136,3 +136,4 @@ data/*.win*.bed.gz
 test
 ._.DS_Store
 .DS_Store
+notebooks

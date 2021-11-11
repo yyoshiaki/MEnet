@@ -162,9 +162,9 @@ def train(args):
             list_imp.append(imp)
 
             dataset = utils.Mixup_dataset(x_train, y_train, transform='mix', imputation=imp,
-                                          noise=noise, n_choise=10, dropout=0.4)
+                                          noise=noise, n_choise=15, dropout=0.2)
             dataloader = torch.utils.data.DataLoader(dataset, batch_size=batch_size, shuffle=True,
-                                                     num_workers=os.cpu_count(), worker_init_fn=utils.worker_init_fn)
+                                                     num_workers=min(os.cpu_count(), 8), worker_init_fn=utils.worker_init_fn)
 
             dataset_test = utils.Mixup_dataset(x_test, y_test, transform='unmix', imputation=imp,
                                                noise=None, dropout=None)
@@ -183,6 +183,8 @@ def train(args):
             # initialize the early_stopping object
             early_stopping = utils.EarlyStopping(
                 patience=patience, verbose=False)
+
+            torch.backends.cudnn.benchmark = True
 
             list_loss = []
             list_valloss = []
