@@ -19,7 +19,7 @@ import numpy as np
 class Mixup_dataset(torch.utils.data.Dataset):
 
     def __init__(self, data, label, transform='mix', imputation=None,
-                 noise=0.01, n_choise=10, dropout=0.4):
+                 noise=0.01, n_choise=10, dropout=0.1):
         self.transform = transform
         self.imputation = imputation
         self.data_num = data.shape[0]
