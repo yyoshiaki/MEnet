@@ -278,9 +278,9 @@ def train(args):
     print("  Number of pruned trials: ", len(pruned_trials))
     print("  Number of complete trials: ", len(complete_trials))
 
-    print("Best trial:")
     trial = study.best_trial
     trial.params['best_epoch'] = trial.user_attrs['best_epoch']
+    print("Best trial: ", str(trial.number))
 
     print("  Best CV: ", trial.value)
 
