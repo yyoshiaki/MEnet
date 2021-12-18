@@ -23,6 +23,7 @@ class MEnet(torch.nn.Module):
 
         self.input_layer = nn.Sequential(
             nn.Linear(input_dim, hidden_dim),
+            nn.BatchNorm1d(hidden_dim),
             nn.Dropout(0.2),
             ac()
         )
@@ -31,6 +32,7 @@ class MEnet(torch.nn.Module):
             middle = []
             for _ in range(self.n_mid_layers):
                 middle.append(nn.Linear(hidden_dim, hidden_dim))
+                middle.append(nn.BatchNorm1d(hidden_dim))
                 middle.append(nn.Dropout(dropout_rate))
                 middle.append(ac())
 
