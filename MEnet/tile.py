@@ -10,15 +10,15 @@ def tile(args):
     tile_bp = args.bp
 
     print(f_input, tile_bp)
-    if os.path.exists('{n}.tile{t}bp.csv'.format(n=f_input.split('.bis')[0], t=tile_bp)):
+    if os.path.exists('{n}.tile{t}bp.csv'.format(n=f_input.split('.bis')[0].split('_bis')[0], t=tile_bp)):
         print('Input file has already been tiled. If you need to tile it again, delete the existing file ({}).'.format(
-            '{n}.tile{t}bp.csv'.format(n=f_input.split('.bis')[0], t=tile_bp)))
+            '{n}.tile{t}bp.csv'.format(n=f_input.split('.bis')[0].split('_bis')[0], t=tile_bp)))
         return
     else:
         print('Tiling bismark cov...')
         df_input = utils.tile_bismark(f_input, tile_bp, args.bedtools)
         df_input.to_csv(
-            '{n}.tile{t}bp.csv'.format(n=f_input.split('.bis')[0], t=tile_bp))
+            '{n}.tile{t}bp.csv'.format(n=f_input.split('.bis')[0].split('_bis')[0], t=tile_bp))
 
         return
 
