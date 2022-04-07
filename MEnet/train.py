@@ -1,7 +1,10 @@
 import os
+from pyexpat import model
 import yaml
 import sys
 import argparse
+import shutil
+
 
 # from pickle import dump
 # from pickle import load
@@ -293,17 +296,19 @@ def train(args):
     with open('{}/CV_best_params.yaml'.format(dir_output), 'w') as file:
         yaml.dump(trial.params, file)
 
-    with open("{d}/model_params/{n}.pickle".format(d=dir_output, n=study.best_trial.number), "rb") as fin:
-        list_imp, list_best_models_states = pickle.load(fin)
+    # with open("{d}/model_params/{n}.pickle".format(d=dir_output, n=study.best_trial.number), "rb") as fin:
+    #     model_params = pickle.load(fin)
 
-    model_params = [[X.shape[1], trial.params['hidden_dim'],
-                     trial.params['dropout_rate'], trial.params['n_layers'],
-                     trial.params['activation'], labels.shape[1]],
-                    list_best_models_states,
-                    list(df.index), list(labels.columns), list_imp, df_cat]
+    # model_params = [[X.shape[1], trial.params['hidden_dim'],
+    #                  trial.params['dropout_rate'], trial.params['n_layers'],
+    #                  trial.params['activation'], labels.shape[1]],
+    #                 list_best_models_states,
+    #                 list(df.index), list(labels.columns), list_imp, df_cat]
 
-    with open("{d}/best_model.pickle".format(d=dir_output), mode='wb') as f:
-        pickle.dump(model_params, f)
+    # with open("{d}/best_model.pickle".format(d=dir_output), mode='wb') as f:
+    #     pickle.dump(model_params, f)
+    
+    shutil.copy('{}/model_params/{}.pickle'.format(dir_output, study.best_trial.number), '{}/CV_best_model.pickle'.format(dir_output))
 
     fig = optuna.visualization.plot_intermediate_values(study)
     fig.update_yaxes(range=(0, 10))
