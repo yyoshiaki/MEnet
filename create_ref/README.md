@@ -174,7 +174,7 @@ python ~/yyoshiaki-git/meth_atlas/convert_fast5mod2bismark.py meth.tsv.gz meth.b
 
 ### Methylation Array
 
-We adopted only 450K or EPIC array as input. First, methylatiom rate (beta value) was multiplied by n_read(10) to create pseudo bismark.cov file.
+We adopted only 450K or EPIC array as input. First, methylatiom rate (beta value) was multiplied by n_read(5) to create pseudo bismark.cov file.
 
 ```
 python array2bismark.py
