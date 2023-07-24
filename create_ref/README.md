@@ -159,15 +159,19 @@ fast5mod guppy2sam ${FAST5PATH} \
 | samtools sort -@ 32 | samtools view -b -@ 32 > ${OUTBAM}
 samtools index ${OUTBAM}
 
-BAM=meth.bam
-REGIONS=(chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 \
-chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX)
-for REG in ${REGIONS[@]}
-do
-fast5mod call --meth cpg ${BAM} ${REFERENCE} ${REG} meth.${REG}.tsv
-cat meth.${REG}.tsv >> meth.tsv
-rm meth.${REG}.tsv
-done
+# BAM=meth.bam
+# REGIONS=(chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 \
+# chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX)
+# for REG in ${REGIONS[@]}
+# do
+# fast5mod call --meth cpg ${BAM} ${REFERENCE} ${REG} meth.${REG}.tsv
+# cat meth.${REG}.tsv >> meth.tsv
+# rm meth.${REG}.tsv
+# done
+
+BAM=meth.${barcode}.bam
+fast5mod call --meth cpg ${BAM} ${REFERENCE} meth.tsv
+
 pigz meth.tsv
 python ~/yyoshiaki-git/meth_atlas/convert_fast5mod2bismark.py meth.tsv.gz meth.bis.cov.gz
 ```
